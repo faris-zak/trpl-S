@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 240" width="820" height="240" role="img" aria-label="trpl-S primary horizontal logo">
+  <title>trpl-S primary horizontal logo</title>
+  <rect x="0" y="0" width="820" height="240" fill="#292725"/>
+  <g transform="translate(18 6) scale(1)"><g fill="#FFFFFF">
+    <path d="M142.5 10L210 146L190.5 184L142.5 71L123 130H82.5Z"/>
+    <path d="M72 137H136.5L99 187L127.5 218H30Z"/>
+    <path d="M214.5 149L270 218H139L110 187H211.5Z"/>
+  </g></g><g transform="translate(370 64) scale(1.08)"><g fill="#FFFFFF" aria-label="trpl-S">
+    <path d="M8 8H22V28H46V42H22V70L29 77H47V91H24L8 75V42H0V28H8Z"/>
+    <path d="M58 28H72V34L80 28H108V42H80L72 50V91H58Z"/>
+    <path fill-rule="evenodd" d="M118 28H160L176 44V70L160 86H132V108H118ZM132 42V72H154L162 64V50L154 42Z"/>
+    <path d="M188 8H202V77H228V91H188Z"/>
+    <path d="M240 52H274V66H240Z"/>
+    <path d="M296 8H346V22H302L294 30V42L302 50H334L350 66V77L336 91H286V77H330L336 71V66L330 60H296L280 44V24Z"/>
+  </g></g>
+</svg>

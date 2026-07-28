@@ -1,0 +1,287 @@
+{
+  "brand": "trpl-S",
+  "version": "1.1.0",
+  "selectedDirection": "Aperture",
+  "colors": {
+    "graphite": "#292725",
+    "white": "#FFFFFF",
+    "oneInk": "#000000"
+  },
+  "files": [
+    {
+      "path": "concepts/aperture-comparison.png",
+      "bytes": 45453,
+      "sha256": "06826ff045996868a8a25ae31cb73c8939a9fc35278e2966771fb68dfd1de435"
+    },
+    {
+      "path": "concepts/aperture-comparison.svg",
+      "bytes": 3166,
+      "sha256": "339eaee0967280d39aa4cb0a04bd530acae503a144dfcad4c40361f92d463c77"
+    },
+    {
+      "path": "concepts/continuous-frame-comparison.png",
+      "bytes": 60693,
+      "sha256": "4515eff1f5f9fd1c93c50b6d8f8ab46eae7f1cf9850c1ceb19edee50fc0b6100"
+    },
+    {
+      "path": "concepts/continuous-frame-comparison.svg",
+      "bytes": 3220,
+      "sha256": "2a2515b90f9229253ea4c93fe16fc5cf56d06ea3fa69f43eb259a87efaabc575"
+    },
+    {
+      "path": "concepts/span-comparison.png",
+      "bytes": 57389,
+      "sha256": "063f7bebec7184b22ed0f71d367ecf57fb3ad16e902c72f0d2d44100a3ed918c"
+    },
+    {
+      "path": "concepts/span-comparison.svg",
+      "bytes": 3664,
+      "sha256": "d896dd8ad27f0a366adf3e71cc167c3d307989b97fc0364230b4f264f99333b9"
+    },
+    {
+      "path": "concepts/truss-comparison.png",
+      "bytes": 52388,
+      "sha256": "55015e4708ce8a09455b84116627ebf4dee1fb47cf2340f9e9ac1aaa05cc1c55"
+    },
+    {
+      "path": "concepts/truss-comparison.svg",
+      "bytes": 3267,
+      "sha256": "c4fb94731a084f5f80683da19e5c0f7f4b4022af8854b04f00fd0b399f42abf8"
+    },
+    {
+      "path": "drawing-stamp/trpl-s-stamp-dark.png",
+      "bytes": 9270,
+      "sha256": "267fc4ace968a0c206f64276b4f120d83df80a9f959dc96b8720e9ac78bca264"
+    },
+    {
+      "path": "drawing-stamp/trpl-s-stamp-dark.svg",
+      "bytes": 989,
+      "sha256": "2d0276e8dce977cc9f98afcf239d036f896d9e3945809942e441524bef062a04"
+    },
+    {
+      "path": "drawing-stamp/trpl-s-stamp-light.png",
+      "bytes": 7714,
+      "sha256": "fcb9c42ab977fe50d8a3daf1ca98c1be1e3205b7fba8781b373b9e4b16329351"
+    },
+    {
+      "path": "drawing-stamp/trpl-s-stamp-light.svg",
+      "bytes": 989,
+      "sha256": "5f4205620c49f5084e167a380c3feb208006c4b98c0b7061244812fb4af4ebf6"
+    },
+    {
+      "path": "guide/trpl-s-usage-guide.md",
+      "bytes": 1667,
+      "sha256": "18a9074a451ab1aebf1941005102a50de8abbd87c12e47cb6d56203ad07ece47"
+    },
+    {
+      "path": "guide/trpl-s-usage-guide.pdf",
+      "bytes": 59371,
+      "sha256": "654f10ecba19b027b3abd4558c346a2deb5f3e0b56520283577e6c480a65f98a"
+    },
+    {
+      "path": "master/trpl-s-primary-black.svg",
+      "bytes": 1009,
+      "sha256": "a40e3558411bfc692f0e2785b33733c5a27785f6ecad414ed92dbee702c73f78"
+    },
+    {
+      "path": "master/trpl-s-primary-positive.svg",
+      "bytes": 1009,
+      "sha256": "6de9c185fabe49701d1dde52988bec41a75c45c34b4294be5727a2eee7563cac"
+    },
+    {
+      "path": "master/trpl-s-primary-reversed.svg",
+      "bytes": 1068,
+      "sha256": "15eaaa89025ccdf733ce5e98769e91db08a450b65228bb3f1f343d76362eb531"
+    },
+    {
+      "path": "master/trpl-s-primary-transparent.svg",
+      "bytes": 1009,
+      "sha256": "6de9c185fabe49701d1dde52988bec41a75c45c34b4294be5727a2eee7563cac"
+    },
+    {
+      "path": "master/trpl-s-stacked-positive.svg",
+      "bytes": 967,
+      "sha256": "b399040ca7ee0b3f519b54787d2d628794c081972134428adeee05bd1b232d25"
+    },
+    {
+      "path": "master/trpl-s-stacked-reversed.svg",
+      "bytes": 1026,
+      "sha256": "7582487cab97933552b136852313ee92f150c39532815a4a54533adc95b9d1e0"
+    },
+    {
+      "path": "master/trpl-s-symbol-positive.svg",
+      "bytes": 482,
+      "sha256": "2398aa2a763da8331e17978d7349ab564527915dfed0f12a178a09868da98e48"
+    },
+    {
+      "path": "master/trpl-s-symbol-reversed.svg",
+      "bytes": 541,
+      "sha256": "2277c110824b4344a1625aa522d51588f8f40ea61fefdcc78904b714a7446228"
+    },
+    {
+      "path": "master/trpl-s-symbol-small.svg",
+      "bytes": 482,
+      "sha256": "6c96ab862f1acac2889886dd4bfaad96602f7c4e80b17d017b40b028961b18f1"
+    },
+    {
+      "path": "master/trpl-s-wordmark-positive.svg",
+      "bytes": 757,
+      "sha256": "454bc728702cd6c09dcfcd9f5b32d5ddbea8b820ce2f1757860dc9f94d4b8b8a"
+    },
+    {
+      "path": "master/trpl-s-wordmark-reversed.svg",
+      "bytes": 816,
+      "sha256": "eeefd7f2d51b5635a09f3bc1604990583d3730fa1d6c8fe91d64929d46b25f2e"
+    },
+    {
+      "path": "print/trpl-s-drawing-sheet-lockup.pdf",
+      "bytes": 1423,
+      "sha256": "1dd1ca78dbf53cede0a7812caf15d9062dbecdf7b82a982cfc9a07704b29ac68"
+    },
+    {
+      "path": "print/trpl-s-portfolio-cover-lockup.pdf",
+      "bytes": 1424,
+      "sha256": "783c946eca132bd67e5581ea775c583a22c6eeec3ec57c9ebe73e78b3d99812b"
+    },
+    {
+      "path": "print/trpl-s-primary-black.pdf",
+      "bytes": 1419,
+      "sha256": "ecf82dc9217d48f7d467633cacfcd4e893594155f268e7704356a953e073e619"
+    },
+    {
+      "path": "print/trpl-s-primary-graphite.pdf",
+      "bytes": 1429,
+      "sha256": "c24c0c29714c4ffd20a67a0cc3a20f59cb3e983cbc5f0019b275c4bf791bc87e"
+    },
+    {
+      "path": "print/trpl-s-stacked-black.pdf",
+      "bytes": 1413,
+      "sha256": "9fa26217bf4560e7b2bf05f5109ee54086a23512c4d057fadeea46be662cb435"
+    },
+    {
+      "path": "print/trpl-s-stacked-graphite.pdf",
+      "bytes": 1424,
+      "sha256": "6339fcec879dd7ffcc384495e323932c4ba8591ed3dcbb49c3d3c6aac07f13b7"
+    },
+    {
+      "path": "print/trpl-s-title-page-lockup.pdf",
+      "bytes": 1429,
+      "sha256": "183b1af6e4a7ac336a984b0263327d926507db9455c31d25d6e32dde0133d3ab"
+    },
+    {
+      "path": "provenance.md",
+      "bytes": 726,
+      "sha256": "49bd57aded6280b58046e330db5415ceee38c6c1966dde2be69c9f3d7c4a267c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 971,
+      "sha256": "9d98c889a4e6d6d7bd313addf5d00b15ed3db9e01d012c54f36c70f429168bb2"
+    },
+    {
+      "path": "validation/favicon-16-pixel-check.png",
+      "bytes": 2806,
+      "sha256": "87e2eab4ca87ac4d3936b12b00f7947e3808782bc2251c93fa12c24f662f7f74"
+    },
+    {
+      "path": "validation/trpl-s-context-matrix.png",
+      "bytes": 492678,
+      "sha256": "088e8cabd85f47e77f5418b27b0219dc9c96575c7e3f4de5336dd682bdd91e4b"
+    },
+    {
+      "path": "validation/trpl-s-print-test-a4.pdf",
+      "bytes": 25755,
+      "sha256": "28091c3fd8e713df5ee22bd9e8dab181ee12e9dbb46a78fdde43b4c43b043d4a"
+    },
+    {
+      "path": "web/apple-touch-icon-180.png",
+      "bytes": 2678,
+      "sha256": "1c2c3536210e3be0dbb5f4c1ea3a46eac271b8dabefb3844fe306cb1d53e11da"
+    },
+    {
+      "path": "web/favicon-16.png",
+      "bytes": 326,
+      "sha256": "72686b540b52e55d96e47bfbc8e27d4365686195f952d9261570272e5b3d219d"
+    },
+    {
+      "path": "web/favicon-32.png",
+      "bytes": 551,
+      "sha256": "a337be5a00f5826e76f7e9c0b64d18d99c29820b3946f9fa80ee751b6c6ea360"
+    },
+    {
+      "path": "web/icon-192.png",
+      "bytes": 2905,
+      "sha256": "728bffd397438b94b2e0d4afee000f7d98a2c4554f964acc211f0248957f51a2"
+    },
+    {
+      "path": "web/icon-512.png",
+      "bytes": 9210,
+      "sha256": "e25b478e3bb89e42fe7caa17308cbd83b67401ad8e0737cadd9a77f69160996c"
+    },
+    {
+      "path": "web/trpl-s-primary-1x.png",
+      "bytes": 7248,
+      "sha256": "fdbd1bb9d603f1a46c6919db6447d5c20ff5a9ce4a607ca4456952a2d7a9c12a"
+    },
+    {
+      "path": "web/trpl-s-primary-2x.png",
+      "bytes": 16388,
+      "sha256": "493b569e93f34ee0c757e049e50d72a7bf703abd2f28b64376aa5b4d1e0d498f"
+    },
+    {
+      "path": "web/trpl-s-primary-4x.png",
+      "bytes": 41986,
+      "sha256": "2a492c454cb759af1b159c5f12b0a7fd7f95d55eddaca0eb2056a7a5f628b5ca"
+    },
+    {
+      "path": "web/trpl-s-primary-reversed-2x.png",
+      "bytes": 13677,
+      "sha256": "297bea6f5b343df1ac6a203407ab7a88152e87f85dea5248395a49c6345283de"
+    },
+    {
+      "path": "web/trpl-s-stacked-1x.png",
+      "bytes": 6145,
+      "sha256": "c47d31a26edde85fa2997a29bc78c8e9e3943c2352b7d29111160daa1a2d4d59"
+    },
+    {
+      "path": "web/trpl-s-stacked-2x.png",
+      "bytes": 14519,
+      "sha256": "ec37f2046ac7225845594ef421a4fd19ee788b6f0fe7e74e93b1f2ba8a7c3d6b"
+    },
+    {
+      "path": "web/trpl-s-stacked-4x.png",
+      "bytes": 36714,
+      "sha256": "e3587308a31a5439ad7f1af02ffc5ca08985994256c4c332096b20197eaaf939"
+    },
+    {
+      "path": "web/trpl-s-symbol-1x.png",
+      "bytes": 5119,
+      "sha256": "99611ebc8c3795e5893bb81d75d3538c9bc1d68508a32b8ec4016ad452fe646e"
+    },
+    {
+      "path": "web/trpl-s-symbol-2x.png",
+      "bytes": 12433,
+      "sha256": "5b026100d9a5deb70cc905afb44ca25327255fd8f461155fd9be80b60f468f48"
+    },
+    {
+      "path": "web/trpl-s-symbol-4x.png",
+      "bytes": 30156,
+      "sha256": "605c0d69fe2098a9d5604d0cfc90503ebc7a48cd4e516bccd0890e4d4d5fc32d"
+    },
+    {
+      "path": "web/trpl-s-wordmark-1x.png",
+      "bytes": 1201,
+      "sha256": "04e719d3c183fb4a9dcd7b99af7beb5800386359c445a6ac99d422c49c5175e4"
+    },
+    {
+      "path": "web/trpl-s-wordmark-2x.png",
+      "bytes": 2850,
+      "sha256": "f3809adb852df9210ed46ca2bde190eb9e656453cb03ee86773d903ff4372d41"
+    },
+    {
+      "path": "web/trpl-s-wordmark-4x.png",
+      "bytes": 8233,
+      "sha256": "2be56fa4eaca0561412d4f28fe174abf6c3aabb9294323b6be953a9c50b74a03"
+    }
+  ]
+}

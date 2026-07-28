@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 116" width="350" height="116" role="img" aria-label="trpl-S custom geometric wordmark">
+  <title>trpl-S custom geometric wordmark</title>
+  
+  <g transform="translate(0 4)"><g fill="#292725" aria-label="trpl-S">
+    <path d="M8 8H22V28H46V42H22V70L29 77H47V91H24L8 75V42H0V28H8Z"/>
+    <path d="M58 28H72V34L80 28H108V42H80L72 50V91H58Z"/>
+    <path fill-rule="evenodd" d="M118 28H160L176 44V70L160 86H132V108H118ZM132 42V72H154L162 64V50L154 42Z"/>
+    <path d="M188 8H202V77H228V91H188Z"/>
+    <path d="M240 52H274V66H240Z"/>
+    <path d="M296 8H346V22H302L294 30V42L302 50H334L350 66V77L336 91H286V77H330L336 71V66L330 60H296L280 44V24Z"/>
+  </g></g>
+</svg>

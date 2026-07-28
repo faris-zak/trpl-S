@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="trpl-S Continuous Frame concept comparison">
+  <title>trpl-S Continuous Frame concept comparison</title>
+  
+  <rect width="1600" height="1000" fill="#FFFFFF"/>
+    <g transform="translate(80 80) scale(1.5)"><path fill="#292725" fill-rule="evenodd" d="M18 24H248L210 86H184L205 50H62L128 160L149 126L166 154L128 216ZM72 96H198L262 204H226L178 122H114L68 200H32L86 108ZM252 82L334 218H176L194 188H280L234 112Z"/></g>
+    <g transform="translate(640 155) scale(1.55)"><g fill="#292725" aria-label="trpl-S">
+    <path d="M8 8H22V28H46V42H22V70L29 77H47V91H24L8 75V42H0V28H8Z"/>
+    <path d="M58 28H72V34L80 28H108V42H80L72 50V91H58Z"/>
+    <path fill-rule="evenodd" d="M118 28H160L176 44V70L160 86H132V108H118ZM132 42V72H154L162 64V50L154 42Z"/>
+    <path d="M188 8H202V77H228V91H188Z"/>
+    <path d="M240 52H274V66H240Z"/>
+    <path d="M296 8H346V22H302L294 30V42L302 50H334L350 66V77L336 91H286V77H330L336 71V66L330 60H296L280 44V24Z"/>
+  </g></g>
+    <g transform="translate(80 480)"><rect width="640" height="310" fill="#292725"/><g transform="translate(72 44) scale(1.35)"><path fill="#FFFFFF" fill-rule="evenodd" d="M18 24H248L210 86H184L205 50H62L128 160L149 126L166 154L128 216ZM72 96H198L262 204H226L178 122H114L68 200H32L86 108ZM252 82L334 218H176L194 188H280L234 112Z"/></g></g>
+    <g transform="translate(810 490)"><rect width="150" height="150" rx="0" fill="#FFFFFF" stroke="#292725" stroke-width="2"/><g transform="translate(15 15) scale(.34)"><path fill="#292725" fill-rule="evenodd" d="M18 24H248L210 86H184L205 50H62L128 160L149 126L166 154L128 216ZM72 96H198L262 204H226L178 122H114L68 200H32L86 108ZM252 82L334 218H176L194 188H280L234 112Z"/></g></g>
+    <g transform="translate(1010 490)"><rect width="150" height="150" fill="#292725"/><g transform="translate(15 15) scale(.34)"><path fill="#FFFFFF" fill-rule="evenodd" d="M18 24H248L210 86H184L205 50H62L128 160L149 126L166 154L128 216ZM72 96H198L262 204H226L178 122H114L68 200H32L86 108ZM252 82L334 218H176L194 188H280L234 112Z"/></g></g>
+    <g transform="translate(810 700) scale(.94)"><path fill="#292725" fill-rule="evenodd" d="M18 24H248L210 86H184L205 50H62L128 160L149 126L166 154L128 216ZM72 96H198L262 204H226L178 122H114L68 200H32L86 108ZM252 82L334 218H176L194 188H280L234 112Z"/></g><g transform="translate(1160 755) scale(.72)"><g fill="#292725" aria-label="trpl-S">
+    <path d="M8 8H22V28H46V42H22V70L29 77H47V91H24L8 75V42H0V28H8Z"/>
+    <path d="M58 28H72V34L80 28H108V42H80L72 50V91H58Z"/>
+    <path fill-rule="evenodd" d="M118 28H160L176 44V70L160 86H132V108H118ZM132 42V72H154L162 64V50L154 42Z"/>
+    <path d="M188 8H202V77H228V91H188Z"/>
+    <path d="M240 52H274V66H240Z"/>
+    <path d="M296 8H346V22H302L294 30V42L302 50H334L350 66V77L336 91H286V77H330L336 71V66L330 60H296L280 44V24Z"/>
+  </g></g>
+    <text x="80" y="910" font-family="Arial, sans-serif" font-size="30" fill="#292725">Continuous Frame</text>
+    <text x="80" y="950" font-family="Arial, sans-serif" font-size="18" fill="#292725">symbol / horizontal lockup / reversed / favicon / drawing stamp</text>
+</svg>
