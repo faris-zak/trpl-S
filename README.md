@@ -6,6 +6,18 @@ The production-ready identity package lives in [`brand/trpl-s-logo-package`](bra
 
 The local website is a framework-free HTML, CSS, and JavaScript experience. Open [`index.html`](index.html) directly or serve the repository root with any static file server.
 
+## Study 001 direction reset
+
+The active architectural direction now begins with one continuous exoskeleton and massing model rather than four independently designed elevations. The earlier plan/elevation package is retained as a superseded study but removed from the active website narrative.
+
+- Interactive structural massing: [`model.html`](model.html)
+- Model source: [`model.js`](model.js)
+- Architectural doctrine: [`design/study-001-direction-reset.md`](design/study-001-direction-reset.md)
+- Model-derived review views: [`assets/study-001-reset`](assets/study-001-reset)
+- Capture and browser verification: [`tools/capture-study-001-reset.mjs`](tools/capture-study-001-reset.mjs)
+
+The model uses a pinned Three.js import map and must be served through a local HTTP server rather than opened through a `file://` URL.
+
 ## Study 001 house development
 
 The original right-side elevation has been developed into a coordinated two-storey house concept with floor plans, four elevations, a structural section, web detail drawings, and a three-page A1 PDF set.
