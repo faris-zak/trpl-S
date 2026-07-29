@@ -88,7 +88,62 @@
   const dialog = document.getElementById("drawing-viewer");
   const stage = dialog?.querySelector("[data-viewer-stage]");
   const image = dialog?.querySelector("[data-viewer-image]");
-  const openButtons = [...document.querySelectorAll("[data-open-viewer]")];
+  const viewerTitle = dialog?.querySelector("[data-viewer-title]");
+  const viewerMeta = dialog?.querySelector("[data-viewer-meta]");
+  const selectors = [...document.querySelectorAll("[data-drawing-selector]")];
+
+  selectors.forEach((selector, selectorIndex) => {
+    const options = [...selector.querySelectorAll("[data-selector-option]")];
+    const selectorImage = selector.querySelector("[data-selector-image]");
+    const openButton = selector.querySelector("[data-selector-open]");
+    const title = selector.querySelector("[data-selector-title]");
+    const meta = selector.querySelector("[data-selector-meta]");
+    const description = selector.querySelector("[data-selector-description]");
+    if (!options.length || !selectorImage || !openButton || !title || !meta || !description) return;
+
+    const panelId = `drawing-selector-panel-${selectorIndex + 1}`;
+    openButton.id = panelId;
+    openButton.setAttribute("role", "tabpanel");
+
+    const selectOption = (option, moveFocus = false) => {
+      options.forEach((candidate, optionIndex) => {
+        const isSelected = candidate === option;
+        candidate.setAttribute("aria-selected", String(isSelected));
+        candidate.tabIndex = isSelected ? 0 : -1;
+        candidate.id ||= `drawing-selector-${selectorIndex + 1}-tab-${optionIndex + 1}`;
+        candidate.setAttribute("aria-controls", panelId);
+      });
+      openButton.setAttribute("aria-labelledby", option.id);
+      selectorImage.src = option.dataset.src;
+      selectorImage.alt = option.dataset.alt;
+      title.textContent = option.dataset.title;
+      meta.textContent = option.dataset.meta;
+      description.textContent = option.dataset.description;
+      openButton.dataset.viewerSrc = option.dataset.src;
+      openButton.dataset.viewerTitle = option.dataset.title;
+      openButton.dataset.viewerMeta = option.dataset.meta;
+      openButton.dataset.viewerAlt = option.dataset.alt;
+      openButton.setAttribute("aria-label", `Open ${option.dataset.title.toLowerCase()} in full-screen viewer`);
+      if (moveFocus) option.focus();
+    };
+
+    options.forEach((option, optionIndex) => {
+      option.addEventListener("click", () => selectOption(option));
+      option.addEventListener("keydown", (event) => {
+        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+        event.preventDefault();
+        let nextIndex = optionIndex;
+        if (event.key === "ArrowLeft") nextIndex = (optionIndex - 1 + options.length) % options.length;
+        if (event.key === "ArrowRight") nextIndex = (optionIndex + 1) % options.length;
+        if (event.key === "Home") nextIndex = 0;
+        if (event.key === "End") nextIndex = options.length - 1;
+        selectOption(options[nextIndex], true);
+      });
+    });
+    selectOption(options.find((option) => option.getAttribute("aria-selected") === "true") || options[0]);
+  });
+
+  const openButtons = [...document.querySelectorAll("[data-open-viewer], [data-selector-open]")];
   const controls = [...(dialog?.querySelectorAll("[data-viewer-action]") || [])];
 
   if (!dialog || !stage || !image) return;
@@ -139,7 +194,18 @@
     renderViewer();
   };
 
-  const openViewer = () => {
+  const defaultDrawing = {
+    src: image.getAttribute("src"),
+    alt: image.getAttribute("alt"),
+    title: viewerTitle?.textContent || "Study 001",
+    meta: viewerMeta?.textContent || "R-L-S",
+  };
+
+  const openViewer = (trigger) => {
+    image.src = trigger?.dataset.viewerSrc || defaultDrawing.src;
+    image.alt = trigger?.dataset.viewerAlt || defaultDrawing.alt;
+    if (viewerTitle) viewerTitle.textContent = trigger?.dataset.viewerTitle || defaultDrawing.title;
+    if (viewerMeta) viewerMeta.textContent = trigger?.dataset.viewerMeta || defaultDrawing.meta;
     resetViewer();
     body.classList.add("viewer-open");
     dialog.showModal();
@@ -152,8 +218,9 @@
     pointers.clear();
   };
 
-  openButtons.forEach((button) => button.addEventListener("click", openViewer));
+  openButtons.forEach((button) => button.addEventListener("click", () => openViewer(button)));
   dialog.addEventListener("close", () => body.classList.remove("viewer-open"));
+  image.addEventListener("load", renderViewer);
 
   controls.forEach((control) => {
     control.addEventListener("click", () => {
