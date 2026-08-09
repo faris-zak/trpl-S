@@ -9,7 +9,31 @@
   const headerStudy = document.querySelector(".header-study");
   const defaultStudyLabel = headerStudy?.textContent || "Study 001 / R-L-S";
   const detailSections = [...document.querySelectorAll(".detail-section")];
+  const chaptersToggle = document.querySelector(".chapters-toggle");
+  const chaptersNav = document.getElementById("chapter-navigation");
+  const chaptersClose = document.querySelector("[data-close-chapters]");
   let frameRequested = false;
+
+  const setChaptersOpen = (isOpen) => {
+    body.classList.toggle("chapters-open", isOpen);
+    chaptersToggle?.setAttribute("aria-expanded", String(isOpen));
+    chaptersNav?.setAttribute("aria-hidden", String(!isOpen));
+    if (isOpen) chaptersClose?.focus();
+  };
+
+  chaptersToggle?.addEventListener("click", () => {
+    setChaptersOpen(!body.classList.contains("chapters-open"));
+  });
+  chaptersClose?.addEventListener("click", () => {
+    setChaptersOpen(false);
+    chaptersToggle?.focus();
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && body.classList.contains("chapters-open")) {
+      setChaptersOpen(false);
+      chaptersToggle?.focus();
+    }
+  });
 
   const setActiveChapter = (section) => {
     if (!section) return;
@@ -55,6 +79,13 @@
     const progress = Math.min(1, Math.max(0, window.scrollY / scrollable));
     root.style.setProperty("--scroll-progress", progress.toFixed(4));
 
+    const chapterMarker = window.innerHeight * 0.36;
+    const activeSection = sections.find((section) => {
+      const rect = section.getBoundingClientRect();
+      return rect.top <= chapterMarker && rect.bottom > chapterMarker;
+    });
+    if (activeSection && body.dataset.chapter !== activeSection.id) setActiveChapter(activeSection);
+
     if (!reduceMotion.matches) {
       if (heroImage) {
         const heroShift = Math.min(42, window.scrollY * 0.045);
@@ -84,6 +115,20 @@
       const target = document.getElementById(link.dataset.chapterLink);
       if (!target) return;
       event.preventDefault();
+      setChaptersOpen(false);
+      setActiveChapter(target);
+      history.replaceState(null, "", `#${target.id}`);
+      target.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
+    });
+  });
+
+  document.querySelectorAll(".hero-action, .chapter-cue").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+      event.preventDefault();
+      setActiveChapter(target);
+      history.replaceState(null, "", `#${target.id}`);
       target.scrollIntoView({ behavior: reduceMotion.matches ? "auto" : "smooth", block: "start" });
     });
   });

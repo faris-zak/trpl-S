@@ -17,7 +17,7 @@
     <script>document.documentElement.classList.replace("no-js", "js");</script>
     <script src="script.js" defer></script>
   </head>
-  <body data-tone="light" data-chapter="threshold">
+  <body data-tone="dark" data-chapter="threshold">
     <a class="skip-link" href="#main">Skip to study</a>
 
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -26,10 +26,14 @@
       <a class="brand-link" href="#threshold" aria-label="trpl-S, return to beginning">
         <img src="brand/trpl-s-logo-package/master/trpl-s-primary-positive.svg" alt="trpl-S" width="820" height="240">
       </a>
-      <span class="header-study" aria-hidden="true">Study 001 / R-L-S</span>
+      <div class="header-meta">
+        <span class="header-study" aria-hidden="true">Study 001&nbsp;&nbsp;|&nbsp;&nbsp;R-L-S</span>
+        <button class="chapters-toggle" type="button" aria-expanded="false" aria-controls="chapter-navigation">Chapters</button>
+      </div>
     </header>
 
-    <nav class="chapter-rail" aria-label="Study chapters">
+    <nav class="chapter-rail" id="chapter-navigation" aria-label="Study chapters" aria-hidden="true">
+      <div class="chapter-rail-heading"><span>Index</span><button type="button" data-close-chapters>Close</button></div>
       <a href="#threshold" data-chapter-link="threshold"><span>00</span><strong>Threshold</strong></a>
       <a href="#study" data-chapter-link="study"><span>01</span><strong>Study</strong></a>
       <a href="#form" data-chapter-link="form"><span>02</span><strong>Form</strong></a>
@@ -44,23 +48,21 @@
     </nav>
 
     <main id="main">
-      <section class="hero chapter" id="threshold" data-tone="light" aria-labelledby="hero-title">
+      <section class="hero chapter" id="threshold" data-tone="dark" aria-labelledby="hero-title">
         <div class="hero-media" aria-hidden="true">
           <picture>
-            <source srcset="assets/study-001-1800.webp 1800w, assets/study-001-1000.webp 1000w" type="image/webp">
-            <img src="assets/study-001.jpg" alt="" width="1813" height="1280" fetchpriority="high">
+            <source srcset="assets/study-001-cinematic-hero-1536.webp?v=2 1536w, assets/study-001-cinematic-hero-900.webp?v=2 900w" type="image/webp">
+            <img src="assets/study-001-cinematic-hero.png?v=2" alt="" width="1536" height="1024" fetchpriority="high">
           </picture>
         </div>
         <div class="hero-copy" data-reveal>
           <p class="eyebrow">An architectural sketchbook</p>
-          <h1 id="hero-title">
-            <img src="brand/trpl-s-logo-package/master/trpl-s-primary-positive.svg" alt="trpl-S" width="820" height="240">
-          </h1>
-          <p class="hero-line">Where triangles become shelter.</p>
+          <h1 id="hero-title">Where triangles<br>become <em>shelter.</em></h1>
+          <p class="hero-line">Nothing is hidden. Roof, support, opening, and path become the atmosphere of the house.</p>
+          <a class="hero-action" href="#study">Enter the study</a>
         </div>
-        <a class="chapter-cue" href="#study">
-          <span>Enter Study 001</span>
-          <i aria-hidden="true"></i>
+        <a class="chapter-cue" href="#study" aria-label="Scroll to Study 001">
+          <span>Scroll to study</span>
         </a>
       </section>
 
