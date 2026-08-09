@@ -1,405 +1,129 @@
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0B0A09">
-    <meta name="description" content="trpl-S is an architectural sketchbook exploring houses shaped by triangles, tension, shelter, and movement.">
-    <meta property="og:title" content="trpl-S | Where triangles become shelter.">
-    <meta property="og:description" content="Two original house studies shaped by triangles, tension, shelter, and movement.">
-    <meta property="og:image" content="assets/trpl-s-social-preview.png">
-    <meta property="og:type" content="website">
-    <title>trpl-S | Where triangles become shelter.</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="brand/trpl-s-logo-package/web/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="brand/trpl-s-logo-package/web/favicon-16.png">
-    <link rel="apple-touch-icon" href="brand/trpl-s-logo-package/web/apple-touch-icon-180.png">
-    <link rel="stylesheet" href="styles.css?v=3">
-    <script>document.documentElement.classList.replace("no-js", "js");</script>
-    <script src="script.js?v=3" defer></script>
-  </head>
-  <body data-tone="dark" data-chapter="threshold">
-    <a class="skip-link" href="#main">Skip to study</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B0A09">
+  <meta name="description" content="An architectural sketchbook exploring houses shaped by triangles, tension, shelter, and movement.">
+  <meta property="og:title" content="trpl-S | Where triangles become shelter.">
+  <meta property="og:description" content="Two original house studies shaped by triangles, tension, shelter, and movement.">
+  <meta property="og:image" content="assets/trpl-s-social-preview.png">
+  <meta property="og:type" content="website">
+  <title>trpl-S | Where triangles become shelter.</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="brand/trpl-s-logo-package/web/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="brand/trpl-s-logo-package/web/favicon-16.png">
+  <link rel="apple-touch-icon" href="brand/trpl-s-logo-package/web/apple-touch-icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=5">
+  <script src="script.js?v=5" defer></script>
+</head>
+<body>
+  <nav>
+    <span class="nav-logo">trpl-S</span>
+    <ul class="nav-links">
+      <li><a href="#study-001">Study 001</a></li>
+      <li><a href="#study-002">Study 002</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <div class="scroll-progress" aria-hidden="true"><span></span></div>
-
-    <header class="site-header" aria-label="Site header">
-      <a class="brand-link" href="#threshold" aria-label="trpl-S, return to beginning">
-        <img src="brand/trpl-s-logo-package/master/trpl-s-primary-positive.svg" alt="trpl-S" width="820" height="240">
+  <main>
+    <section class="hero" id="threshold">
+      <div class="hero-bg"></div>
+      <p class="hero-label">An architectural sketchbook</p>
+      <h1 class="hero-title">Where triangles<br>become <em>shelter.</em></h1>
+      <p class="hero-sub">Nothing is hidden. Roof, support, opening, and path become the atmosphere of the house.</p>
+      <a href="#study-001" class="hero-cta">
+        <span class="hero-cta-line"></span>
+        Enter the study
       </a>
-      <div class="header-meta">
-        <span class="header-study" aria-hidden="true">Study 001&nbsp;&nbsp;|&nbsp;&nbsp;R-L-S</span>
-        <button class="chapters-toggle" type="button" aria-expanded="false" aria-controls="chapter-navigation">Chapters</button>
+    </section>
+
+    <section class="study-intro" id="study-001">
+      <div class="reveal">
+        <div class="chapter">Study 001 · R-L-S</div>
       </div>
-    </header>
+      <div class="reveal" style="transition-delay:0.1s">
+        <h2 class="study-title">A house suspended between <em>shelter, bridge, and frame.</em></h2>
+      </div>
+      <div class="reveal" style="transition-delay:0.2s">
+        <p class="study-body">One drawing becomes a field of structural questions. The triangle is not decoration here. It carries weight, directs movement, and opens space.</p>
+      </div>
+    </section>
 
-    <nav class="chapter-rail" id="chapter-navigation" aria-label="Study chapters" aria-hidden="true">
-      <div class="chapter-rail-heading"><span>Index</span><button type="button" data-close-chapters>Close</button></div>
-      <a href="#threshold" data-chapter-link="threshold"><span>00</span><strong>Threshold</strong></a>
-      <a href="#study" data-chapter-link="study"><span>01</span><strong>Study</strong></a>
-      <a href="#form" data-chapter-link="form"><span>02</span><strong>Form</strong></a>
-      <a href="#tension" data-chapter-link="tension"><span>03</span><strong>Tension</strong></a>
-      <a href="#movement" data-chapter-link="movement"><span>04</span><strong>Movement</strong></a>
-      <a href="#shelter" data-chapter-link="shelter"><span>05</span><strong>Shelter</strong></a>
-      <a href="#massing" data-chapter-link="massing"><span>06</span><strong>Massing</strong></a>
-      <a href="#model" data-chapter-link="model"><span>07</span><strong>Model</strong></a>
-      <a href="#inspect" data-chapter-link="inspect"><span>08</span><strong>Inspect</strong></a>
-      <a href="#study-002" data-chapter-link="study-002"><span>09</span><strong>Study 002</strong></a>
-      <a href="#contact" data-chapter-link="contact"><span>10</span><strong>Contact</strong></a>
-    </nav>
+    <div class="drawing-strip reveal">
+      <div class="drawing-strip-inner">
+        <img src="assets/study-001-1800.webp" alt="Pencil elevation study of R-L-S — a house formed from triangular structural logic">
+      </div>
+    </div>
+    <div class="drawing-caption reveal">
+      <span class="drawing-caption-text">Elevation study · Pencil on paper</span>
+      <span class="drawing-caption-meta">001 / R-L-S</span>
+    </div>
 
-    <main id="main">
-      <section class="hero chapter" id="threshold" data-tone="dark" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true">
-          <picture>
-            <source srcset="assets/study-001-cinematic-hero-1536.webp?v=2 1536w, assets/study-001-cinematic-hero-900.webp?v=2 900w" type="image/webp">
-            <img src="assets/study-001-cinematic-hero.png?v=2" alt="" width="1536" height="1024" fetchpriority="high">
-          </picture>
+    <section class="analysis" id="form">
+      <div class="chapter reveal">Reading the drawing</div>
+      <div class="analysis-grid">
+        <div class="analysis-item reveal" style="transition-delay:0.05s">
+          <span class="analysis-num">Form</span>
+          <h3 class="analysis-heading">A roof becomes<br><em>a span.</em></h3>
+          <p class="analysis-body">The widest line arrives first. Beneath it, the house narrows, gathers tension, and finds the ground.</p>
         </div>
-        <div class="hero-copy" data-reveal>
-          <p class="eyebrow">An architectural sketchbook</p>
-          <h1 id="hero-title">Where triangles<br>become <em>shelter.</em></h1>
-          <p class="hero-line">Nothing is hidden. Roof, support, opening, and path become the atmosphere of the house.</p>
-          <a class="hero-action" href="#study">Enter the study</a>
+        <div class="analysis-item reveal" style="transition-delay:0.12s">
+          <span class="analysis-num">Tension</span>
+          <h3 class="analysis-heading">Three edges hold<br><em>a room.</em></h3>
+          <p class="analysis-body">The inverted triangle feels suspended and grounded at once. Its weight is visible, but its center remains open.</p>
         </div>
-        <a class="chapter-cue" href="#study" aria-label="Scroll to Study 001">
-          <span>Scroll to study</span>
-        </a>
-      </section>
-
-      <section class="study-opening chapter" id="study" data-tone="dark" aria-labelledby="study-title">
-        <div class="section-intro wrap">
-          <div data-reveal>
-            <p class="chapter-index">01 / Study</p>
-            <h2 id="study-title">Study 001<br>R-L-S</h2>
-          </div>
-          <div class="intro-copy" data-reveal>
-            <p class="lead">A house suspended between shelter, bridge, and frame.</p>
-            <p>One drawing becomes a field of structural questions. The triangle is not decoration here. It carries weight, directs movement, and opens space.</p>
-          </div>
-        </div>
-        <figure class="drawing-figure full-drawing" data-reveal>
-          <picture>
-            <source srcset="assets/study-001-1800.webp 1800w, assets/study-001-1000.webp 1000w" type="image/webp">
-            <img src="assets/study-001.jpg" alt="Pencil architectural study of a house formed from a wide roof, inverted triangular structure, and diagonal circulation." width="1813" height="1280" loading="eager">
-          </picture>
-          <figcaption><span>Elevation study</span><span>Pencil on paper</span><span>001</span></figcaption>
-        </figure>
-      </section>
-
-      <section class="detail-section chapter" id="form" data-tone="dark" aria-labelledby="form-title">
-        <div class="detail-visual">
-          <img src="assets/study-001-1800.webp" alt="Wide triangular roofline from Study 001" width="1813" height="1280" loading="lazy">
-        </div>
-        <div class="detail-copy wrap">
-          <p class="chapter-index">02 / Form</p>
-          <h2 id="form-title" data-reveal>A roof becomes<br>a span.</h2>
-          <p data-reveal>The widest line arrives first. Beneath it, the house narrows, gathers tension, and finds the ground.</p>
-        </div>
-      </section>
-
-      <section class="detail-section detail-dark chapter" id="tension" data-tone="dark" aria-labelledby="tension-title">
-        <div class="detail-visual detail-center">
-          <img src="assets/study-001-1800.webp" alt="Central inverted triangular frame from Study 001" width="1813" height="1280" loading="lazy">
-        </div>
-        <div class="detail-copy wrap">
-          <p class="chapter-index">03 / Tension</p>
-          <h2 id="tension-title" data-reveal>Three edges hold<br>a room in tension.</h2>
-          <p data-reveal>The inverted triangle feels suspended and grounded at once. Its weight is visible, but its center remains open.</p>
-        </div>
-      </section>
-
-      <section class="detail-section chapter" id="movement" data-tone="dark" aria-labelledby="movement-title">
-        <div class="detail-visual detail-right">
-          <img src="assets/study-001-1800.webp" alt="Diagonal stair and circulation lines from Study 001" width="1813" height="1280" loading="lazy">
-        </div>
-        <div class="detail-copy wrap">
-          <p class="chapter-index">04 / Movement</p>
-          <h2 id="movement-title" data-reveal>Movement cuts<br>through the frame.</h2>
-          <p data-reveal>The stair does more than connect levels. It becomes another structural stroke, carrying the eye beyond the house.</p>
-        </div>
-      </section>
-
-      <section class="shelter chapter" id="shelter" data-tone="dark" aria-labelledby="shelter-title">
-        <div class="shelter-media" aria-hidden="true">
-          <img src="assets/study-001-1800.webp" alt="" width="1813" height="1280" loading="lazy">
-        </div>
-        <div class="shelter-copy wrap">
-          <p class="chapter-index">05 / Shelter</p>
-          <h2 id="shelter-title" data-reveal>Structure is allowed<br>to speak.</h2>
-          <p data-reveal>Nothing is hidden. Roof, support, opening, and path become the atmosphere of the house.</p>
-        </div>
-      </section>
-
-      <section class="direction-reset chapter" id="massing" data-tone="dark" aria-labelledby="massing-title">
-        <div class="reset-intro wrap">
-          <div data-reveal>
-            <p class="chapter-index">06 / Direction reset</p>
-            <h2 id="massing-title">One structure.<br>Four consequences.</h2>
-          </div>
-          <div class="reset-copy" data-reveal>
-            <p class="lead">The elevations are no longer designed as façades.</p>
-            <p>The original east sketch now generates a continuous exoskeleton: its roof and frame turn north to make the entrance, widen south to span the family terrace, and compress west to protect the service edge.</p>
-          </div>
-        </div>
-        <figure class="reset-hero" data-reveal>
-          <img src="assets/study-001-reset/perspective.webp" alt="Interactive massing study showing the continuous triangular exoskeleton, floating roof, occupied volumes, terrace and pool" width="1224" height="918" loading="eager">
-          <figcaption class="wrap"><span>Structural massing gate</span><span>Scheme reset / model 01</span><span>Not for construction</span></figcaption>
-        </figure>
-        <div class="reset-principles wrap">
-          <article><span>01</span><h3>East remains invariant</h3><p>The inverted V, crossing diagonal, hangers and occupied upper floor are preserved and proportionally refined.</p></article>
-          <article><span>02</span><h3>Structure turns corners</h3><p>North, south and west are produced by the same perimeter frame rather than receiving decorative diagonal beams.</p></article>
-          <article><span>03</span><h3>Rooms occupy the field</h3><p>Glass and solid cores sit behind the load-bearing system. One controlled living void connects stair, bridge and roof aperture.</p></article>
-          <article><span>04</span><h3>Engineering stays visible</h3><p>Megaframe legs, steel roof chords, slab edges and slender hangers establish a legible conceptual load path.</p></article>
-        </div>
-      </section>
-
-      <section class="model-entry chapter" id="model" data-tone="dark" aria-labelledby="model-entry-title">
-        <div class="model-entry-heading wrap">
-          <div data-reveal>
-            <p class="chapter-index">07 / Model</p>
-            <h2 id="model-entry-title">Inspect the building.<br>Not four drawings.</h2>
-          </div>
-          <div class="model-entry-copy" data-reveal>
-            <p>Orbit the complete massing, isolate its layers, and switch between perspective, orthographic elevations, model-derived plans and a sectional reveal.</p>
-            <a href="model.html">Open interactive massing model <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </div>
-        <div class="model-view-grid wrap">
-          <a href="model.html" aria-label="Open the model at the east elevation"><img src="assets/study-001-reset/east.webp" alt="Model-derived east elevation preserving the inverted structural frame" width="1224" height="918" loading="eager"><span>East / invariant</span></a>
-          <a href="model.html" aria-label="Open the model at the north elevation"><img src="assets/study-001-reset/north.webp" alt="Model-derived north elevation with structural arrival portal" width="1224" height="918" loading="eager"><span>North / threshold</span></a>
-          <a href="model.html" aria-label="Open the model at the south elevation"><img src="assets/study-001-reset/south.webp" alt="Model-derived south elevation with terrace-spanning frame" width="1224" height="918" loading="eager"><span>South / panorama</span></a>
-          <a href="model.html" aria-label="Open the model at the west elevation"><img src="assets/study-001-reset/west.webp" alt="Model-derived west elevation with compressed structural buttresses" width="1224" height="918" loading="eager"><span>West / privacy</span></a>
-        </div>
-        <div class="model-entry-note wrap">
-          <p>This is a massing and structural-direction gate. Detailed floor planning, member engineering, sections, interiors and renders follow only after the building logic is accepted.</p>
-          <a href="design/study-001-direction-reset.md">Read the direction document</a>
-        </div>
-      </section>
-
-      <section class="development chapter" id="plan" data-tone="light" aria-labelledby="plan-title" hidden>
-        <div class="development-intro wrap">
-          <div data-reveal>
-            <p class="chapter-index">06 / Plan</p>
-            <h2 id="plan-title">The section becomes<br>a house.</h2>
-          </div>
-          <div class="development-copy" data-reveal>
-            <p class="lead">Four bedrooms. Two occupied floors. One precise living void.</p>
-            <p>The original right-side drawing now organizes a complete home: a protected northern arrival, a hybrid design studio, family rooms facing the southern garden, and the feature stair held behind the eastern frame.</p>
-          </div>
-        </div>
-
-        <div class="drawing-selector wrap" data-drawing-selector>
-          <div class="selector-toolbar">
-            <div class="selector-tabs" role="tablist" aria-label="Choose a floor plan">
-              <button type="button" role="tab" aria-selected="true" data-selector-option
-                data-src="assets/study-001-development/floor-ground.svg"
-                data-alt="Ground floor plan with hybrid studio, guest suite, kitchen, dining, family living and east stair"
-                data-title="Ground floor"
-                data-meta="Approx. 220 sq m"
-                data-description="The family enters at the centre. The hybrid studio and guest suite form the private west wing; dining and living open south while the stair rises behind the east glass frame.">Ground floor</button>
-              <button type="button" role="tab" aria-selected="false" data-selector-option
-                data-src="assets/study-001-development/floor-first.svg"
-                data-alt="First floor plan with master suite, two bedrooms, family lounge, bridge gallery and living void"
-                data-title="First floor"
-                data-meta="Approx. 170 sq m"
-                data-description="The upper floor is fully occupied by three bedrooms, a family lounge and bridge gallery. Only the defined southeast living-room void remains open to the floor below.">First floor</button>
-            </div>
-            <a class="download-link" href="output/pdf/study-001-house-development.pdf" download>Download A1 set</a>
-          </div>
-          <div class="selector-stage">
-            <button class="selector-drawing" type="button" data-selector-open aria-label="Open ground floor plan in full-screen viewer">
-              <img src="assets/study-001-development/floor-ground.svg" alt="Ground floor plan with hybrid studio, guest suite, kitchen, dining, family living and east stair" width="1000" height="780" loading="lazy" data-selector-image>
-              <span>Expand drawing</span>
-            </button>
-            <div class="selector-note" aria-live="polite">
-              <p class="selector-kicker" data-selector-meta>Approx. 220 sq m</p>
-              <h3 data-selector-title>Ground floor</h3>
-              <p data-selector-description>The family enters at the centre. The hybrid studio and guest suite form the private west wing; dining and living open south while the stair rises behind the east glass frame.</p>
-              <dl>
-                <div><dt>Plot</dt><dd>30 x 25 m</dd></div>
-                <div><dt>Footprint</dt><dd>18 x 13.5 m</dd></div>
-                <div><dt>Orientation</dt><dd>North road / south garden</dd></div>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="development development-dark chapter" id="elevations" data-tone="dark" aria-labelledby="elevations-title" hidden>
-        <div class="development-intro wrap">
-          <div data-reveal>
-            <p class="chapter-index">07 / Elevations</p>
-            <h2 id="elevations-title">One identity.<br>Four responses.</h2>
-          </div>
-          <div class="development-copy" data-reveal>
-            <p class="lead">The house changes with privacy, sun and use.</p>
-            <p>The east remains iconic. The north becomes a composed arrival, the south opens to the pool and the west protects service rooms from heat and view.</p>
-          </div>
-        </div>
-
-        <div class="drawing-selector wrap" data-drawing-selector>
-          <div class="selector-toolbar">
-            <div class="selector-tabs" role="tablist" aria-label="Choose an exterior elevation">
-              <button type="button" role="tab" aria-selected="true" data-selector-option
-                data-src="assets/study-001-development/elevation-east.svg"
-                data-alt="East elevation with the original inverted triangular frame, occupied upper floor and wide roof"
-                data-title="East / original right side"
-                data-meta="Signature elevation"
-                data-description="The original sketch is retained as the east elevation. Concrete diagonals and graphite hangers sit outside shaded glass; rooms and the upper slab continue behind them.">East</button>
-              <button type="button" role="tab" aria-selected="false" data-selector-option
-                data-src="assets/study-001-development/elevation-north.svg"
-                data-alt="North arrival elevation with recessed entrance, studio window and parking canopy"
-                data-title="North / arrival"
-                data-meta="Controlled frontage"
-                data-description="A recessed family door, broad studio window and restrained bedroom openings create a calm entrance beneath the returning diagonal and roof canopy.">North</button>
-              <button type="button" role="tab" aria-selected="false" data-selector-option
-                data-src="assets/study-001-development/elevation-south.svg"
-                data-alt="South garden elevation with sliding glass, shaded terrace, master balcony and pool"
-                data-title="South / terrace and pool"
-                data-meta="Family garden edge"
-                data-description="Living and dining open to a deep timber-lined terrace. The master balcony and vertical fins shade the upper glazing while the pool reinforces the long horizontal roof.">South</button>
-              <button type="button" role="tab" aria-selected="false" data-selector-option
-                data-src="assets/study-001-development/elevation-west.svg"
-                data-alt="West service elevation with solid walls, controlled windows, workshop door and parking canopy"
-                data-title="West / service and privacy"
-                data-meta="Protected service edge"
-                data-description="The most solid facade holds the kitchen, bathrooms, studio making bay and service door. Smaller openings reduce afternoon heat and protect privacy.">West</button>
-            </div>
-            <a class="download-link" href="output/pdf/study-001-house-development.pdf" download>Download A1 set</a>
-          </div>
-          <div class="selector-stage">
-            <button class="selector-drawing" type="button" data-selector-open aria-label="Open east elevation in full-screen viewer">
-              <img src="assets/study-001-development/elevation-east.svg" alt="East elevation with the original inverted triangular frame, occupied upper floor and wide roof" width="1000" height="620" loading="lazy" data-selector-image>
-              <span>Expand drawing</span>
-            </button>
-            <div class="selector-note" aria-live="polite">
-              <p class="selector-kicker" data-selector-meta>Signature elevation</p>
-              <h3 data-selector-title>East / original right side</h3>
-              <p data-selector-description>The original sketch is retained as the east elevation. Concrete diagonals and graphite hangers sit outside shaded glass; rooms and the upper slab continue behind them.</p>
-              <ul class="material-list" aria-label="Material palette">
-                <li><i class="material-concrete" aria-hidden="true"></i>Concrete</li>
-                <li><i class="material-steel" aria-hidden="true"></i>Steel</li>
-                <li><i class="material-glass" aria-hidden="true"></i>Glass</li>
-                <li><i class="material-timber" aria-hidden="true"></i>Timber</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="board-set wrap" aria-labelledby="board-set-title">
-          <div class="board-set-heading">
-            <div>
-              <p class="chapter-index">A1 / Concept set</p>
-              <h3 id="board-set-title">Three coordinated boards</h3>
-            </div>
-            <p>Plans, four elevations and a section explain how the original side sketch becomes an occupied, practical house.</p>
-          </div>
-          <div class="board-grid">
-            <button type="button" data-open-viewer data-viewer-src="assets/study-001-development/board-01-arrangement.svg" data-viewer-title="House arrangement" data-viewer-meta="Board 01 / A1" data-viewer-alt="Site plan, ground floor and first floor concept board">
-              <img src="assets/study-001-development/board-01-arrangement.webp" alt="Site plan, ground floor and first floor concept board" width="1800" height="1272" loading="lazy">
-              <span><strong>01</strong>House arrangement</span>
-            </button>
-            <button type="button" data-open-viewer data-viewer-src="assets/study-001-development/board-02-elevations.svg" data-viewer-title="Four exterior sides" data-viewer-meta="Board 02 / A1" data-viewer-alt="North, east, south and west elevation concept board">
-              <img src="assets/study-001-development/board-02-elevations.webp" alt="North, east, south and west elevation concept board" width="1800" height="1272" loading="lazy">
-              <span><strong>02</strong>Four exterior sides</span>
-            </button>
-            <button type="button" data-open-viewer data-viewer-src="assets/study-001-development/board-03-section.svg" data-viewer-title="Structure becomes shelter" data-viewer-meta="Board 03 / A1" data-viewer-alt="Section through the east frame, upper floor and double-height living room">
-              <img src="assets/study-001-development/board-03-section.webp" alt="Section through the east frame, upper floor and double-height living room" width="1800" height="1272" loading="lazy">
-              <span><strong>03</strong>Structure becomes shelter</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section class="inspect chapter" id="inspect" data-tone="dark" aria-labelledby="inspect-title">
-        <div class="inspect-heading wrap">
-          <div data-reveal>
-            <p class="chapter-index">08 / Inspect</p>
-            <h2 id="inspect-title">One drawing.<br>Many rooms.</h2>
-          </div>
-          <button class="inspect-command" type="button" data-open-viewer>
-            <span>Open full drawing</span><i aria-hidden="true"></i>
-          </button>
-        </div>
-        <button class="inspect-canvas" type="button" data-open-viewer aria-label="Open Study 001 in the full-screen viewer">
-          <img src="assets/study-001-1800.webp" alt="Study 001 architectural drawing" width="1813" height="1280" loading="lazy">
-          <span aria-hidden="true">View</span>
-        </button>
-      </section>
-
-      <section class="study-two chapter" id="study-002" data-tone="light" data-study-label="Study 002 / trpl-S (2)" aria-labelledby="study-002-title">
-        <div class="section-intro wrap">
-          <div data-reveal>
-            <p class="chapter-index">09 / Study 002</p>
-            <h2 id="study-002-title">Study 002<br>trpl-S (2)</h2>
-          </div>
-          <div class="intro-copy" data-reveal>
-            <p class="lead">One structure, drawn twice.</p>
-            <p>The first edition establishes the paired triangular volumes in a few searching lines. The second edition returns to the same idea with weight, depth, and a more resolved structural frame.</p>
-          </div>
-        </div>
-        <div class="study-editions wrap" aria-label="trpl-S (2) drawing editions">
-          <article class="study-edition" data-reveal>
-            <button class="study-edition-canvas" type="button" data-open-viewer
-              data-viewer-src="assets/study-002-edition-01-1800.webp"
-              data-viewer-title="trpl-S (2) / Edition 01"
-              data-viewer-meta="First edition / pencil on lined paper"
-              data-viewer-alt="First edition pencil drawing of trpl-S (2), establishing two large triangular house volumes and smaller form studies"
-              aria-label="Open the first edition of trpl-S (2) in the full-screen viewer">
-              <picture>
-                <source srcset="assets/study-002-edition-01-1800.webp 1800w, assets/study-002-edition-01-1000.webp 1000w" type="image/webp">
-                <img src="assets/study-002-edition-01.png" alt="First edition pencil drawing of trpl-S (2), establishing two large triangular house volumes and smaller form studies" width="1839" height="1227" loading="lazy">
-              </picture>
-              <span aria-hidden="true">View</span>
-            </button>
-            <div class="study-edition-meta"><span>Edition 01</span><span>First lines</span></div>
-          </article>
-          <article class="study-edition" data-reveal>
-            <button class="study-edition-canvas" type="button" data-open-viewer
-              data-viewer-src="assets/study-002-edition-02-1800.webp"
-              data-viewer-title="trpl-S (2) / Edition 02"
-              data-viewer-meta="Second edition / scanned pencil drawing"
-              data-viewer-alt="Second edition scanned pencil drawing of trpl-S (2), with darker layered triangular frames and structural depth"
-              aria-label="Open the second edition of trpl-S (2) in the full-screen viewer">
-              <picture>
-                <source srcset="assets/study-002-edition-02-1800.webp 1800w, assets/study-002-edition-02-1000.webp 1000w" type="image/webp">
-                <img src="assets/study-002-edition-02.png" alt="Second edition scanned pencil drawing of trpl-S (2), with darker layered triangular frames and structural depth" width="1711" height="2723" loading="lazy">
-              </picture>
-              <span aria-hidden="true">View</span>
-            </button>
-            <div class="study-edition-meta"><span>Edition 02</span><span>Scanned study</span></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="contact chapter" id="contact" data-tone="dark" data-study-label="Architectural studies" aria-labelledby="contact-title">
-        <div class="contact-inner wrap" data-reveal>
-          <img class="contact-symbol" src="brand/trpl-s-logo-package/master/trpl-s-symbol-positive.svg" alt="" width="300" height="228">
-          <p class="chapter-index">10 / Continue</p>
-          <h2 id="contact-title">The next structure<br>begins with a line.</h2>
-          <a class="email-link" href="mailto:a.alzakwani@outlook.com">a.alzakwani@outlook.com</a>
-        </div>
-        <footer class="site-footer wrap">
-          <span>trpl-S</span>
-          <span>Architectural studies</span>
-          <a href="#threshold">Return to threshold</a>
-        </footer>
-      </section>
-    </main>
-
-    <dialog class="drawing-viewer" id="drawing-viewer" aria-label="Study 001 drawing viewer">
-      <div class="viewer-header">
-        <div><strong data-viewer-title>Study 001</strong><span data-viewer-meta>R-L-S</span></div>
-        <div class="viewer-controls" aria-label="Drawing controls">
-          <button type="button" data-viewer-action="zoom-out" aria-label="Zoom out">-</button>
-          <button type="button" data-viewer-action="reset" aria-label="Reset zoom">1:1</button>
-          <button type="button" data-viewer-action="zoom-in" aria-label="Zoom in">+</button>
-          <button type="button" data-viewer-action="close" aria-label="Close drawing viewer">x</button>
+        <div class="analysis-item reveal" style="transition-delay:0.19s">
+          <span class="analysis-num">Movement</span>
+          <h3 class="analysis-heading">The stair is<br><em>another stroke.</em></h3>
+          <p class="analysis-body">It does more than connect levels. It becomes a structural line, carrying the eye beyond the house itself.</p>
         </div>
       </div>
-      <div class="viewer-stage" data-viewer-stage>
-        <img src="assets/study-001-1800.webp" alt="Full Study 001 architectural drawing" width="1813" height="1280" data-viewer-image draggable="false">
+    </section>
+
+    <section class="study-002" id="study-002">
+      <div class="chapter reveal">Study 002 · trpl-S (2)</div>
+      <div class="study-002-intro">
+        <div class="reveal" style="transition-delay:0.05s">
+          <h2 class="study-002-headline">One structure,<br><em>drawn twice.</em></h2>
+        </div>
+        <div class="reveal" style="transition-delay:0.12s">
+          <p class="study-002-body">The first edition establishes the paired triangular volumes in a few searching lines. The second edition returns to the same idea with weight, depth, and a more resolved structural frame.</p>
+        </div>
       </div>
-    </dialog>
-  </body>
+      <div class="study-002-editions reveal" style="transition-delay:0.1s">
+        <div class="edition">
+          <img src="assets/study-002-edition-01.png" alt="First edition pencil drawing of trpl-S (2)">
+          <div class="edition-label">
+            <span class="edition-num">Edition 01</span>
+            <span class="edition-title">First lines</span>
+          </div>
+        </div>
+        <div class="edition">
+          <img src="assets/study-002-edition-02.png" alt="Second edition scanned pencil drawing of trpl-S (2)">
+          <div class="edition-label">
+            <span class="edition-num">Edition 02</span>
+            <span class="edition-title">Scanned study</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <div class="footer-left reveal">
+        <h2 class="footer-headline">The next structure<br>begins with <em>a line.</em></h2>
+        <a class="footer-email" href="mailto:a.alzakwani@outlook.com">a.alzakwani@outlook.com</a>
+      </div>
+      <div class="footer-right reveal" style="transition-delay:0.1s">
+        <span class="footer-logo">trpl-S · Architectural studies</span>
+        <a class="footer-back" href="#threshold">↑ Return to threshold</a>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
