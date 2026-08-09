@@ -6,6 +6,8 @@
   const chapterLinks = [...document.querySelectorAll("[data-chapter-link]")];
   const revealItems = [...document.querySelectorAll("[data-reveal]")];
   const heroImage = document.querySelector(".hero-media img");
+  const headerStudy = document.querySelector(".header-study");
+  const defaultStudyLabel = headerStudy?.textContent || "Study 001 / R-L-S";
   const detailSections = [...document.querySelectorAll(".detail-section")];
   let frameRequested = false;
 
@@ -13,6 +15,7 @@
     if (!section) return;
     body.dataset.tone = section.dataset.tone || "light";
     body.dataset.chapter = section.id;
+    if (headerStudy) headerStudy.textContent = section.dataset.studyLabel || defaultStudyLabel;
     chapterLinks.forEach((link) => {
       if (link.dataset.chapterLink === section.id) {
         link.setAttribute("aria-current", "true");

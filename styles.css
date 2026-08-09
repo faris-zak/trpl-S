@@ -1,6 +1,7 @@
 :root {
   --graphite: #292725;
   --white: #ffffff;
+  --paper: #f8f7f4;
   --line-light: rgba(41, 39, 37, 0.18);
   --line-dark: rgba(255, 255, 255, 0.22);
   --header-height: 76px;
@@ -324,6 +325,7 @@ body[data-tone="dark"] .chapter-rail {
 .section-intro h2,
 .detail-copy h2,
 .shelter-copy h2,
+.study-two h2,
 .inspect-heading h2,
 .contact h2 {
   margin: 0;
@@ -1057,6 +1059,81 @@ body[data-tone="dark"] .chapter-rail {
   text-transform: uppercase;
 }
 
+.study-two {
+  padding-top: 150px;
+  background: var(--paper);
+}
+
+.study-editions {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  padding-bottom: 54px;
+}
+
+.study-edition {
+  min-width: 0;
+}
+
+.study-edition-canvas {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-light);
+  background: var(--white);
+  cursor: zoom-in;
+}
+
+.study-edition-canvas picture,
+.study-edition-canvas img {
+  display: block;
+  width: 100%;
+}
+
+.study-edition-canvas img {
+  height: auto;
+  aspect-ratio: 1.5 / 1;
+  object-fit: cover;
+  transition: transform 700ms var(--ease);
+}
+
+.study-edition:nth-child(2) .study-edition-canvas img {
+  aspect-ratio: 0.75 / 1;
+  object-fit: contain;
+}
+
+.study-edition-canvas:hover img {
+  transform: scale(1.012);
+}
+
+.study-edition-canvas > span {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid var(--graphite);
+  border-radius: 50%;
+  color: var(--graphite);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.study-edition-meta {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .contact {
   display: flex;
   min-height: 100svh;
@@ -1267,6 +1344,7 @@ body[data-tone="dark"] .chapter-rail {
   .section-intro h2,
   .detail-copy h2,
   .shelter-copy h2,
+  .study-two h2,
   .development-intro h2,
   .inspect-heading h2,
   .contact h2 {
@@ -1358,7 +1436,8 @@ body[data-tone="dark"] .chapter-rail {
   .direction-reset,
   .model-entry,
   .development,
-  .inspect {
+  .inspect,
+  .study-two {
     padding-top: 108px;
   }
 
@@ -1374,6 +1453,7 @@ body[data-tone="dark"] .chapter-rail {
   .section-intro h2,
   .detail-copy h2,
   .shelter-copy h2,
+  .study-two h2,
   .development-intro h2,
   .reset-intro h2,
   .model-entry-heading h2,
@@ -1529,6 +1609,19 @@ body[data-tone="dark"] .chapter-rail {
     bottom: 18px;
     width: 50px;
     height: 50px;
+  }
+
+  .study-editions {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+  }
+
+  .study-edition-canvas > span {
+    right: 14px;
+    bottom: 14px;
+    width: 48px;
+    height: 48px;
   }
 
   .contact-inner {
