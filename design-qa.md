@@ -1,55 +1,47 @@
-# Design QA — Claude redesign implementation
+# Design QA — trpl-S Edition 02-only update
 
 ## Comparison target
 
-- Source visual truth: `C:\Users\aalza\Downloads\trpl-s-redesign.html`.
-- Source capture: `tmp/claude-reference-full.png`, 1280 × 6482 px.
-- Direct hero comparison: `tmp/claude-hero-comparison.png`, 2560 × 720 px, source on the left and implementation on the right.
-- Implemented hero: `tmp/claude-implementation-hero.png`, 1280 × 720 px.
-- Implemented Study 001: `tmp/claude-implementation-study-001.png`, 1280 × 720 px.
-- Implemented analysis: `tmp/claude-implementation-analysis.png`, 1280 × 720 px.
-- Implemented Study 002: `tmp/claude-implementation-study-002.png`, 1280 × 720 px.
-- Implemented contact: `tmp/claude-implementation-contact.png`, 1280 × 720 px.
-- Implemented mobile hero: `tmp/claude-implementation-mobile-hero.png`, 390 × 844 px.
-- Implemented mobile Study 002: `tmp/claude-implementation-mobile-study-002.png`, 390 × 844 px.
-- Excluded by request: Direction reset / structural massing and the interactive model chamber.
+- Source visual truth: the previously approved Study 002 section plus the user directive to remove Edition 01 and retain Edition 02 consistently.
+- Source capture: `tmp/claude-implementation-study-002.png`, 1280 × 720 px.
+- Implementation capture: `tmp/study-002-edition-02-only-desktop.png`, 1280 × 720 px.
+- Direct comparison: `tmp/study-002-edition-02-comparison.png`, 2560 × 720 px, source on the left and implementation on the right.
+- Responsive capture: `tmp/study-002-edition-02-only-mobile.png`, 390 × 844 px.
+- CSS viewport and density: desktop 1280 × 720 at 1×; mobile 390 × 844 at 1×.
+- State: Study 002 revealed and navigation fixed at the top.
 
-## Fidelity review
-
-- Typography: passed. Cormorant Garamond, DM Mono, and Inter use the supplied weights, sizing, line height, and tracking.
-- Color and atmosphere: passed. The black, dark brown, graphite, vellum, and paper palette is unchanged.
-- Layout: passed. Hero composition, Study 001 hierarchy, full-width drawing strip, three-column reading, Study 002 editions, and contact composition follow the supplied HTML.
-- Direct comparison: passed. The 1280 × 720 hero matches in image crop, brightness, title wrapping, typography, copy placement, and CTA treatment; the intentional difference is removal of the Model navigation item.
-- Assets: passed. Supplied remote image references were mapped to their identical local originals for reliable loading.
-- Motion: passed. Hero entrance and one-time intersection reveals preserve the supplied timing and easing.
-- Scope: passed. Every 3D/model/massing section, link, asset set, route, stylesheet, script, and supporting capture file is removed.
-
-## Interaction and technical checks
-
-- Navigation contains Study 001, Study 002, and Contact only.
-- Each navigation link lands on the correct retained section.
-- All artwork reports a valid natural width; no broken images are present.
-- The rendered DOM contains no interactive-model, structural-massing, or direction-reset content.
-- Desktop browser console contains no errors.
-- Desktop layout has no horizontal overflow.
-- Responsive verification covers a 390 × 844 viewport, including the single-column Study 002 stack.
-- `tools/verify-study-001-site.mjs` provides repeatable desktop and mobile checks.
-
-## Findings and comparison history
+## Findings
 
 ### Pass 1
 
-- [P1] Claude's source included two model-led blocks despite the explicit model exclusion.
-- Fix: removed the Direction reset and Interactive model sections and their navigation entry, then removed all corresponding implementation files and generated assets.
+- [P2] Removing the first card without recomposing the grid would leave the retained Edition 02 artwork stranded at half width.
+- Fix: replaced the two-column edition grid with a centered, width-constrained single feature that preserves the scan's 3:4 presentation.
+- Post-fix evidence: `tmp/study-002-edition-02-only-desktop.png` and `tmp/study-002-edition-02-only-mobile.png`.
 
-- [P2] The reference used production-hosted image URLs even though identical originals exist locally.
-- Fix: mapped each retained image to the matching local asset without changing crop, filtering, or presentation.
+- [P2] The old headline and body described two drawing editions and became inconsistent with the retained content.
+- Fix: changed the headline to “One structure, drawn with weight.” and rewrote the supporting sentence around the resolved second edition.
+- Post-fix evidence: the direct comparison shows the revised hierarchy and copy in the same 1280 × 720 state.
 
 ### Pass 2
 
-- [P2] The original navigation spacing could crowd narrow screens after the retained links were applied.
-- Fix: added a narrow-screen spacing adjustment while preserving the exact desktop composition.
+- No actionable P0, P1, P2, or P3 visual issue remains.
 
-- No actionable P0, P1, P2, or P3 issue remains.
+## Required fidelity surfaces
+
+- Fonts and typography: passed. Cormorant Garamond, DM Mono, and Inter remain unchanged; the new headline keeps the established size, weight, wrapping, and italic emphasis.
+- Spacing and layout rhythm: passed. The intro grid is unchanged and the single artwork panel is centered at a deliberate 760 px maximum width.
+- Colors and visual tokens: passed. The charcoal, graphite, vellum, and paper palette is unchanged.
+- Image quality and asset fidelity: passed. Only the original high-resolution Edition 02 scan is rendered, with the existing contrast and brightness treatment.
+- Copy and content: passed. The visible section contains one resolved-edition narrative and no first-edition language.
+
+## Interaction and technical checks
+
+- Study 002 navigation lands correctly.
+- Desktop renders exactly one edition card using `assets/study-002-edition-02.png`.
+- Mobile renders exactly one edition card at 338 px wide with no horizontal overflow.
+- The Edition 02 image loads at its natural 1711 × 2723 px resolution.
+- Browser console contains no errors at desktop or mobile sizes.
+- Three first-edition asset files were removed from the repository.
+- Focused comparison was not needed beyond the full section because the retained artwork, label, and copy are clearly legible at the captured sizes.
 
 final result: passed

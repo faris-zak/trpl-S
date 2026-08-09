@@ -301,7 +301,10 @@ nav::after {
 
 .study-002-headline em { font-style: italic; color: var(--graphite); }
 .study-002-body { color: var(--graphite); font-size: 0.9rem; line-height: 1.75; }
-.study-002-editions { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.study-002-editions {
+  width: min(760px, 100%);
+  margin-inline: auto;
+}
 
 .edition { background: var(--mid); position: relative; overflow: hidden; }
 
@@ -404,7 +407,6 @@ nav::after {
 }
 
 @media (max-width: 600px) {
-  .study-002-editions { grid-template-columns: 1fr; }
   .nav-links { gap: 1rem; }
   .nav-links a { font-size: 0.55rem; letter-spacing: 0.08em; }
 }

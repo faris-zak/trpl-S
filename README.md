@@ -8,9 +8,8 @@ The local website is a framework-free HTML, CSS, and JavaScript experience. Open
 
 ## Study 002
 
-The second original house, trpl-S (2), is presented through its first and second drawing editions near the end of the website narrative. Each original has responsive image exports and separate access through the full-screen drawing viewer.
+The second original house, trpl-S (2), is presented through its resolved second drawing edition near the end of the website narrative.
 
-- First edition: [`assets/study-002-edition-01.png`](assets/study-002-edition-01.png)
 - Second scanned edition: [`assets/study-002-edition-02.png`](assets/study-002-edition-02.png)
 - Responsive web exports use the matching `-1000.webp` and `-1800.webp` files.
 

@@ -35,7 +35,9 @@ try {
   assert((await desktop.locator("nav a").allTextContents()).join("|") === "Study 001|Study 002|Contact", "Navigation matches the supplied redesign");
   assert((await desktop.locator("main > section").evaluateAll((sections) => sections.map((section) => section.id))).join("|") === "threshold|study-001|form|study-002", "Only the retained Claude-design sections render");
   assert(!/interactive model|structural massing|direction reset/i.test(await desktop.locator("body").innerText()), "No 3D or massing copy remains");
-  assert((await desktop.locator("#study-002 img").count()) === 2, "Both Study 002 editions render");
+  assert((await desktop.locator("#study-002 img").count()) === 1, "Only Study 002 Edition 02 renders");
+  assert((await desktop.locator("#study-002 img").getAttribute("src")) === "assets/study-002-edition-02.png", "Study 002 uses the Edition 02 scan");
+  assert(!/Edition 01|First lines|drawn twice/i.test(await desktop.locator("#study-002").innerText()), "Edition 01 copy is fully removed");
   const desktopBrokenImages = await desktop.locator("img").evaluateAll((images) => images.filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.getAttribute("src")));
   assert(desktopBrokenImages.length === 0, "All local artwork resolves successfully");
   const desktopOverflow = await desktop.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -62,8 +64,7 @@ try {
   assert(await mobile.locator(".hero-title").isVisible(), "Hero remains visible at mobile width");
   await mobile.locator('nav a[href="#study-002"]').click();
   await mobile.waitForTimeout(950);
-  assert((await mobile.locator("#study-002 .edition").count()) === 2, "Both Study 002 editions remain available on mobile");
-  assert((await mobile.locator(".study-002-editions").evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(" ").length)) === 1, "Study 002 editions stack on mobile");
+  assert((await mobile.locator("#study-002 .edition").count()) === 1, "Only Edition 02 remains available on mobile");
   assert(errors.length === 0, "Mobile browser emits no console or page errors");
   await mobile.screenshot({ path: path.resolve("tmp", "claude-redesign-mobile.png"), fullPage: true });
 
