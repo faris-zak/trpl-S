@@ -277,14 +277,14 @@ nav::after {
 .analysis-heading em { font-style: italic; color: var(--vellum); }
 .analysis-body { font-size: 0.85rem; color: var(--graphite); line-height: 1.7; }
 
-.study-002 {
+.trpl-s-2 {
   background: var(--dark);
   padding: var(--gap) clamp(1.5rem, 5vw, 4rem);
 }
 
-.study-002 .chapter { margin-bottom: 2.5rem; }
+.trpl-s-2 .chapter { margin-bottom: 2.5rem; }
 
-.study-002-intro {
+.trpl-s-2-intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
@@ -292,16 +292,16 @@ nav::after {
   margin-bottom: 4rem;
 }
 
-.study-002-headline {
+.trpl-s-2-headline {
   font-family: var(--display);
   font-weight: 300;
   font-size: clamp(2rem, 4.5vw, 3.8rem);
   line-height: 1.05;
 }
 
-.study-002-headline em { font-style: italic; color: var(--graphite); }
-.study-002-body { color: var(--graphite); font-size: 0.9rem; line-height: 1.75; }
-.study-002-editions {
+.trpl-s-2-headline em { font-style: italic; color: var(--graphite); }
+.trpl-s-2-body { color: var(--graphite); font-size: 0.9rem; line-height: 1.75; }
+.trpl-s-2-editions {
   width: min(760px, 100%);
   margin-inline: auto;
 }
@@ -403,7 +403,7 @@ nav::after {
 }
 
 @media (max-width: 700px) {
-  .study-002-intro { grid-template-columns: 1fr; gap: 2rem; }
+  .trpl-s-2-intro { grid-template-columns: 1fr; gap: 2rem; }
 }
 
 @media (max-width: 600px) {

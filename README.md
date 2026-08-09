@@ -6,14 +6,13 @@ The production-ready identity package lives in [`brand/trpl-s-logo-package`](bra
 
 The local website is a framework-free HTML, CSS, and JavaScript experience. Open [`index.html`](index.html) directly or serve the repository root with any static file server.
 
-## Study 002
+## trpl-S (2)
 
 The second original house, trpl-S (2), is presented through its resolved second drawing edition near the end of the website narrative.
 
-- Second scanned edition: [`assets/study-002-edition-02.png`](assets/study-002-edition-02.png)
-- Responsive web exports use the matching `-1000.webp` and `-1800.webp` files.
+- Second scanned edition: [`assets/trpl-S(2).webp`](assets/trpl-S(2).webp)
 
-## Study 001 house development
+## trpl-S (1) house development
 
 The original right-side elevation has been developed into a coordinated two-storey house concept with floor plans, four elevations, a structural section, web detail drawings, and a three-page A1 PDF set.
 

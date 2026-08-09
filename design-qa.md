@@ -2,13 +2,13 @@
 
 ## Comparison target
 
-- Source visual truth: the previously approved Study 002 section plus the user directive to remove Edition 01 and retain Edition 02 consistently.
+- Source visual truth: the previously approved trpl-S (2) section plus the user directive to remove Edition 01 and retain Edition 02 consistently.
 - Source capture: `tmp/claude-implementation-study-002.png`, 1280 × 720 px.
 - Implementation capture: `tmp/study-002-edition-02-only-desktop.png`, 1280 × 720 px.
 - Direct comparison: `tmp/study-002-edition-02-comparison.png`, 2560 × 720 px, source on the left and implementation on the right.
 - Responsive capture: `tmp/study-002-edition-02-only-mobile.png`, 390 × 844 px.
 - CSS viewport and density: desktop 1280 × 720 at 1×; mobile 390 × 844 at 1×.
-- State: Study 002 revealed and navigation fixed at the top.
+- State: trpl-S (2) revealed and navigation fixed at the top.
 
 ## Findings
 
@@ -36,8 +36,8 @@
 
 ## Interaction and technical checks
 
-- Study 002 navigation lands correctly.
-- Desktop renders exactly one edition card using `assets/study-002-edition-02.png`.
+- trpl-S (2) navigation lands correctly.
+- Desktop renders exactly one edition card using `assets/trpl-S(2).webp`.
 - Mobile renders exactly one edition card at 338 px wide with no horizontal overflow.
 - The Edition 02 image loads at its natural 1711 × 2723 px resolution.
 - Browser console contains no errors at desktop or mobile sizes.

@@ -32,23 +32,23 @@ try {
   await desktop.waitForTimeout(2400);
 
   assert(response?.ok(), "Home page returns a successful response");
-  assert((await desktop.locator("nav a").allTextContents()).join("|") === "Study 001|Study 002|Contact", "Navigation matches the supplied redesign");
-  assert((await desktop.locator("main > section").evaluateAll((sections) => sections.map((section) => section.id))).join("|") === "threshold|study-001|form|study-002", "Only the retained Claude-design sections render");
+  assert((await desktop.locator("nav a").allTextContents()).join("|") === "trpl-S (1)|trpl-S (2)|Contact", "Navigation uses the trpl-S project names");
+  assert((await desktop.locator("main > section").evaluateAll((sections) => sections.map((section) => section.id))).join("|") === "threshold|trpl-s-1|form|trpl-s-2", "The named trpl-S sections render");
   assert(!/interactive model|structural massing|direction reset/i.test(await desktop.locator("body").innerText()), "No 3D or massing copy remains");
-  assert((await desktop.locator("#study-002 img").count()) === 1, "Only Study 002 Edition 02 renders");
-  assert((await desktop.locator("#study-002 img").getAttribute("src")) === "assets/study-002-edition-02.png", "Study 002 uses the Edition 02 scan");
-  assert(!/Edition 01|First lines|drawn twice/i.test(await desktop.locator("#study-002").innerText()), "Edition 01 copy is fully removed");
+  assert((await desktop.locator("#trpl-s-2 img").count()) === 1, "Only trpl-S (2) Edition 02 renders");
+  assert((await desktop.locator("#trpl-s-2 img").getAttribute("src")) === "assets/trpl-S(2).webp", "trpl-S (2) uses the Edition 02 scan");
+  assert(!/Edition 01|First lines|drawn twice/i.test(await desktop.locator("#trpl-s-2").innerText()), "Edition 01 copy is fully removed");
   const desktopBrokenImages = await desktop.locator("img").evaluateAll((images) => images.filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.getAttribute("src")));
   assert(desktopBrokenImages.length === 0, "All local artwork resolves successfully");
   const desktopOverflow = await desktop.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert(desktopOverflow <= 1, "Desktop layout has no horizontal overflow");
 
-  await desktop.locator('nav a[href="#study-001"]').click();
+  await desktop.locator('nav a[href="#trpl-s-1"]').click();
   await desktop.waitForTimeout(950);
-  assert(await desktop.locator("#study-001 .reveal.visible").count() === 3, "Study 001 reveal sequence completes");
-  await desktop.locator('nav a[href="#study-002"]').click();
+  assert(await desktop.locator("#trpl-s-1 .reveal.visible").count() === 3, "trpl-S (1) reveal sequence completes");
+  await desktop.locator('nav a[href="#trpl-s-2"]').click();
   await desktop.waitForTimeout(950);
-  assert((await desktop.evaluate(() => location.hash)) === "#study-002", "Study 002 navigation lands correctly");
+  assert((await desktop.evaluate(() => location.hash)) === "#trpl-s-2", "trpl-S (2) navigation lands correctly");
   await desktop.locator('nav a[href="#contact"]').click();
   await desktop.waitForTimeout(950);
   assert(await desktop.locator("#contact .reveal.visible").count() === 2, "Contact reveal sequence completes");
@@ -62,9 +62,9 @@ try {
   const mobileOverflow = await mobile.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert(mobileOverflow <= 1, "Mobile layout has no horizontal overflow");
   assert(await mobile.locator(".hero-title").isVisible(), "Hero remains visible at mobile width");
-  await mobile.locator('nav a[href="#study-002"]').click();
+  await mobile.locator('nav a[href="#trpl-s-2"]').click();
   await mobile.waitForTimeout(950);
-  assert((await mobile.locator("#study-002 .edition").count()) === 1, "Only Edition 02 remains available on mobile");
+  assert((await mobile.locator("#trpl-s-2 .edition").count()) === 1, "Only Edition 02 remains available on mobile");
   assert(errors.length === 0, "Mobile browser emits no console or page errors");
   await mobile.screenshot({ path: path.resolve("tmp", "claude-redesign-mobile.png"), fullPage: true });
 
