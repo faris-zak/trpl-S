@@ -1,63 +1,84 @@
-# Design QA — trpl-S cinematic threshold
+# Design QA — trpl-S full-site cinematic redesign
 
-## Evidence
+## Scope
 
-- Source visual truth: `C:\Users\aalza\.codex\generated_images\019fe5f1-8d87-7c21-af62-8d2c8eeedc4b\exec-73bcf5df-c989-4f2a-9367-6e1b47dd089a.png`
-- Browser-rendered implementation: `D:\Cloned GitHub repo\trpl-S\tmp\implementation-qa-pass-3.png`
-- Final side-by-side comparison: `D:\Cloned GitHub repo\trpl-S\tmp\design-qa-comparison-final.png`
-- Mobile implementation: `D:\Cloned GitHub repo\trpl-S\tmp\implementation-mobile-final-3.png`
-- Mobile chapter index: `D:\Cloned GitHub repo\trpl-S\tmp\implementation-mobile-nav-final-4.png`
-- State: desktop threshold hero, chapter drawer closed; mobile threshold and chapter drawer open were checked separately.
-- CSS viewport requested: 1551 × 1048; measured document client viewport: 1536 × 1048; device density: 1.
-- Source pixels: 1487 × 1058. Browser screenshot pixels: 1473 × 1038.
-- Density normalization: both desktop images were resized to 1487 × 1058 for the side-by-side comparison. The small IAB capture-edge difference was normalized before judging layout.
+- Complete public narrative from Threshold through Study 001, Form, Tension, Movement, Shelter, Direction Reset, Model entry, Inspect, Study 002, and Contact.
+- Existing 3D model implementation intentionally left unchanged; only its entry chapter and visual framing were redesigned.
+- Existing brand assets, original drawings, massing captures, content, routes, chapter navigation, and full-screen drawing viewer were preserved.
 
-## Full-view comparison
+## Visual direction
 
-The final implementation preserves the selected visual's core composition: charcoal paper field, concentrated warm triangular aperture, existing trpl-S identity, quiet upper navigation, left-aligned two-line statement, restrained explanatory copy, outlined entry action, and full-viewport architectural framing. The generated background asset uses the original Study 001 drawing and contains no embedded UI or text.
+The selected Option 2 language now governs the complete experience: charcoal architectural space, warm ivory typography, real pencil geometry as atmosphere, illuminated paper plates, precise hairline rules, oversized editorial statements, and one warm-paper interlude for Study 002. The page now reads as one exhibition-like journey instead of a cinematic hero followed by an unrelated white portfolio.
 
-A separate focused-region comparison was not required because the source and implementation are single-screen hero compositions and the normalized full-view comparison keeps the logo, typography, CTA, drawing texture, and lighting boundary clearly legible.
+## Browser evidence
 
-## Required fidelity surfaces
+### Desktop, 1440 × 1024
 
-- Fonts and typography: passed. System Helvetica/Arial provides the source's neutral grotesk character; display weight, line height, letter spacing, hierarchy, and wrapping remain visually aligned. Mobile uses a deliberate three-line wrap to avoid truncation.
-- Spacing and layout rhythm: passed. Header, left content rail, headline, copy, CTA, and negative space align with the source's proportions. Responsive layouts have no horizontal overflow.
-- Colors and visual tokens: passed. Near-black charcoal, warm ivory, subdued beige emphasis, and low-contrast secondary copy match the source direction with adequate visible contrast.
-- Image quality and asset fidelity: passed. The real Study 001 geometry remains recognizable. Responsive WebP assets are sharp and lightweight; the PNG fallback is present. No broken images were found.
-- Copy and content: passed. The selected headline, architectural sketchbook label, supporting statement, study identifier, CTA, and chapter labels are present and accurate.
+- `tmp/full-site-after-study.png`
+- `tmp/full-site-after-form.png`
+- `tmp/full-site-after-tension.png`
+- `tmp/full-site-after-movement.png`
+- `tmp/full-site-after-shelter.png`
+- `tmp/full-site-after-massing.png`
+- `tmp/full-site-after-model.png`
+- `tmp/full-site-after-inspect.png`
+- `tmp/full-site-after-study-002.png`
+- `tmp/full-site-after-contact.png`
 
-## Comparison history
+### Mobile, 390 × 844
 
-### Pass 1
+- `tmp/mobile-after-study.png`
+- `tmp/mobile-after-movement.png`
+- `tmp/mobile-after-model.png`
+- `tmp/mobile-after-study-002.png`
+- `tmp/mobile-after-contact.png`
 
-- [P2] The first background exposed too much of the right half, weakening the selected concept's concentrated aperture and reducing the dark cinematic enclosure.
-- Fix: regenerated the background from both the selected concept and original Study 001 drawing, narrowed the warm light shaft, darkened the perimeter, and rebuilt 1536 px and 900 px WebP exports.
-- Post-fix evidence: `D:\Cloned GitHub repo\trpl-S\tmp\design-qa-comparison-pass-2.png`.
+### Before-state comparison
 
-### Pass 2
+- `tmp/full-site-before-contact-sheet.jpg`
+- Individual before-state captures remain in `tmp/full-site-before-*.png`.
 
-- [P2] The hero copy sat too low and the display scale pushed the supporting copy and CTA below the source's vertical rhythm.
-- Fix: moved the hero rail upward, tightened the display scale, and raised the desktop scroll cue. The chapter transition logic was also made deterministic so the header immediately switches tone on navigation.
-- Post-fix evidence: `D:\Cloned GitHub repo\trpl-S\tmp\design-qa-comparison-final.png`.
+## Required quality surfaces
 
-### Pass 3
+- Typography: passed. Display scale, line height, wraps, chapter labels, and reading widths were reviewed on desktop and mobile. No heading or body copy creates horizontal page overflow.
+- Layout rhythm: passed. Each chapter now has a deliberate arrival, visual focus, and exit. Study, massing, model, inspect, and Study 002 use distinct compositions while sharing the same spacing and rule system.
+- Color and contrast: passed. Warm ivory on near-black is the primary system; secondary copy remains legible, and Study 002 provides a high-contrast warm-paper inversion.
+- Image fidelity: passed. All visible imagery comes from the project's real drawings, massing captures, and selected cinematic asset. No placeholders, synthetic CSS illustrations, inline SVG approximations, or broken images were introduced.
+- Responsive behavior: passed. Checked at 1440 × 1024 and 390 × 844. Mobile chapters stack cleanly, preserve the cinematic crops, retain usable actions, and report no horizontal document overflow.
+- Content and information architecture: passed. All eleven chapters remain present, correctly numbered, and reachable. Hidden development sections remain untouched.
 
-- No actionable P0, P1, or P2 differences remain.
-- The mobile crop was tuned independently so the title stays on charcoal while a controlled sliver of the aperture remains visible.
-- The mobile chapter index was changed to a fully opaque charcoal surface to remove content bleed-through.
+## Interaction checks
 
-## Interaction and browser checks
+- Chapter drawer opens and closes on mobile, with `aria-expanded` and `aria-hidden` changing correctly; all 11 chapter links remain present.
+- Full-screen drawing viewer opens from Inspect, applies the viewer-open body state, exposes zoom/reset/close controls, and closes cleanly.
+- Model entry links continue to resolve to `model.html`; the 3D implementation itself was not modified.
+- Local page, stylesheet, script, model route, and cinematic image return HTTP 200.
+- All local `src` and `href` references resolve to files in the checkout.
+- JavaScript syntax checks passed for `script.js` and `model.js`.
+- `git diff --check` passed.
 
-- Primary CTA scrolls to Study 001, updates the URL fragment, and switches the header to the light-section tone.
-- Chapter drawer opens, closes, updates `aria-expanded` / `aria-hidden`, closes after selection, and navigates to the requested chapter.
-- Existing full-screen drawing viewer still opens and closes.
-- Existing study content and 3D model files were not changed.
-- No browser console warnings or errors were emitted.
-- No loaded image reported a zero natural width.
-- JavaScript syntax and `git diff --check` passed.
+## Findings and fixes
 
-## Follow-up polish
+### [P1] The redesign stopped after the hero
 
-- [P3] The mockup includes tiny directional icons beside Chapters, Enter the study, and Scroll. The implementation keeps these labels text-only so it does not introduce approximate handcrafted icon art into the existing dependency-free site.
+The remaining chapters used the previous white/light portfolio system and did not feel related to the selected cinematic threshold.
+
+Fix: extended the charcoal/warm-paper design system through every visible chapter, including the massing gate, model contact sheet, drawing viewer, Study 002 interlude, and contact finale.
+
+### [P2] Updated styles were initially masked by browser cache
+
+The first live comparison still rendered the previous stylesheet even though the server exposed the new CSS.
+
+Fix: added explicit stylesheet and script cache versions so the current visual system loads deterministically.
+
+### [P2] Mobile layouts needed independent composition
+
+Desktop editorial scale could not simply shrink without compromising legibility and image focus.
+
+Fix: added mobile-specific display sizes, single-column principle and model grids, left-aligned movement copy, tighter paper plates, and a controlled contact crop.
+
+## Final assessment
+
+No actionable P0, P1, or P2 visual or interaction issues remain in the verified public narrative. Any future work on the actual 3D experience is intentionally outside this pass.
 
 final result: passed
