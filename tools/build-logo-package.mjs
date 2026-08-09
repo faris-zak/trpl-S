@@ -91,6 +91,12 @@ function symbolSvg(fill = GRAPHITE, background = null, compact = false) {
   });
 }
 
+function siteIconSvg(fill = GRAPHITE) {
+  return svgDocument("0 0 512 512", `<g transform="translate(0 61) scale(1.7)">${brandSymbol(fill)}</g>`, {
+    label: "trpl-S interlocked triangle icon",
+  });
+}
+
 function wordmarkSvg(fill = GRAPHITE, background = null) {
   return svgDocument("0 0 350 116", `<g transform="translate(0 4)">${wordmark(fill)}</g>`, {
     background,
@@ -255,6 +261,7 @@ async function build() {
     "master/trpl-s-symbol-small.svg": symbolSvg(GRAPHITE, null, true),
     "master/trpl-s-wordmark-positive.svg": wordmarkSvg(GRAPHITE),
     "master/trpl-s-wordmark-reversed.svg": wordmarkSvg(WHITE, GRAPHITE),
+    "web/trpl-s-site-icon.svg": siteIconSvg(GRAPHITE),
     "drawing-stamp/trpl-s-stamp-dark.svg": stampSvg(GRAPHITE),
     "drawing-stamp/trpl-s-stamp-light.svg": stampSvg(WHITE),
   };
@@ -280,15 +287,31 @@ async function build() {
     [wordmarkSvg(), "web/trpl-s-wordmark-2x.png", 700, 232],
     [wordmarkSvg(), "web/trpl-s-wordmark-4x.png", 1400, 464],
     [primarySvg(WHITE), "web/trpl-s-primary-reversed-2x.png", 1640, 480],
-    [symbolSvg(GRAPHITE, null, true), "web/favicon-16.png", 16, 16],
-    [symbolSvg(GRAPHITE, null, true), "web/favicon-32.png", 32, 32],
-    [symbolSvg(), "web/apple-touch-icon-180.png", 180, 180],
-    [symbolSvg(), "web/icon-192.png", 192, 192],
-    [symbolSvg(), "web/icon-512.png", 512, 512],
+    [siteIconSvg(), "web/favicon-16.png", 16, 16],
+    [siteIconSvg(), "web/favicon-32.png", 32, 32],
+    [siteIconSvg(), "web/apple-touch-icon-180.png", 180, 180],
+    [siteIconSvg(), "web/icon-192.png", 192, 192],
+    [siteIconSvg(), "web/icon-512.png", 512, 512],
     [stampSvg(GRAPHITE), "drawing-stamp/trpl-s-stamp-dark.png", 1240, 264],
     [stampSvg(WHITE), "drawing-stamp/trpl-s-stamp-light.png", 1240, 264],
   ];
   for (const [svg, relative, width, height] of pngExports) await rasterize(svg, relative, width, height);
+
+  await write("web/site-icon-manifest.json", JSON.stringify({
+    brand: "trpl-S",
+    asset: "interlocked triangle site icon",
+    source: "owner-supplied logo reference",
+    vectorMaster: "trpl-s-site-icon.svg",
+    fill: GRAPHITE,
+    background: "transparent",
+    exports: [
+      { path: "favicon-16.png", width: 16, height: 16 },
+      { path: "favicon-32.png", width: 32, height: 32 },
+      { path: "apple-touch-icon-180.png", width: 180, height: 180 },
+      { path: "icon-192.png", width: 192, height: 192 },
+      { path: "icon-512.png", width: 512, height: 512 },
+    ],
+  }, null, 2) + "\n");
 
   const browser = await chromium.launch({
     headless: true,
@@ -324,7 +347,7 @@ async function build() {
   }
   await collect(OUT);
   files.sort((a, b) => a.path.localeCompare(b.path));
-  await write("manifest.json", JSON.stringify({ brand: "trpl-S", version: "1.1.0", selectedDirection: "Aperture", colors: { graphite: GRAPHITE, white: WHITE, oneInk: BLACK }, files }, null, 2) + "\n");
+  await write("manifest.json", JSON.stringify({ brand: "trpl-S", version: "1.2.0", selectedDirection: "Aperture", colors: { graphite: GRAPHITE, white: WHITE, oneInk: BLACK }, files }, null, 2) + "\n");
 }
 
 await build();

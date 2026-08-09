@@ -93,7 +93,7 @@ nav::after {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('assets/study-001-cinematic-hero.png');
+  background-image: url('assets/cinematic-hero.webp');
   background-size: cover;
   background-position: center 30%;
   filter: brightness(0.45);

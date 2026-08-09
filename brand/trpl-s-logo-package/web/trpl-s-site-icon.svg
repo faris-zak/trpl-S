@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">trpl-S interlocked triangle icon</title>
+  <g transform="translate(0 61) scale(1.7)" fill="#292725">
+    <path d="M142.5 10L210 146L190.5 184L142.5 71L123 130H82.5Z"/>
+    <path d="M72 137H136.5L99 187L127.5 218H30Z"/>
+    <path d="M214.5 149L270 218H139L110 187H211.5Z"/>
+  </g>
+</svg>

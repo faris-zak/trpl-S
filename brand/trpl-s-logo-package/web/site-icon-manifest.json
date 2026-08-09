@@ -1,0 +1,15 @@
+{
+  "brand": "trpl-S",
+  "asset": "interlocked triangle site icon",
+  "source": "owner-supplied logo reference",
+  "vectorMaster": "trpl-s-site-icon.svg",
+  "fill": "#292725",
+  "background": "transparent",
+  "exports": [
+    { "path": "favicon-16.png", "width": 16, "height": 16 },
+    { "path": "favicon-32.png", "width": 32, "height": 32 },
+    { "path": "apple-touch-icon-180.png", "width": 180, "height": 180 },
+    { "path": "icon-192.png", "width": 192, "height": 192 },
+    { "path": "icon-512.png", "width": 512, "height": 512 }
+  ]
+}

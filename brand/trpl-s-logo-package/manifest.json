@@ -1,6 +1,6 @@
 {
   "brand": "trpl-S",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "selectedDirection": "Aperture",
   "colors": {
     "graphite": "#292725",
@@ -15,8 +15,8 @@
     },
     {
       "path": "concepts/aperture-comparison.svg",
-      "bytes": 3166,
-      "sha256": "339eaee0967280d39aa4cb0a04bd530acae503a144dfcad4c40361f92d463c77"
+      "bytes": 3214,
+      "sha256": "3ba1e5b9f3c09ce4a8f34dc28b2f1a173239335ff7de417a194a6eaad9d0919c"
     },
     {
       "path": "concepts/continuous-frame-comparison.png",
@@ -25,8 +25,8 @@
     },
     {
       "path": "concepts/continuous-frame-comparison.svg",
-      "bytes": 3220,
-      "sha256": "2a2515b90f9229253ea4c93fe16fc5cf56d06ea3fa69f43eb259a87efaabc575"
+      "bytes": 3248,
+      "sha256": "b0541c9668355eca067be98129b078b51649e4e6ae4820ecef12ab7e65037ca0"
     },
     {
       "path": "concepts/span-comparison.png",
@@ -35,8 +35,8 @@
     },
     {
       "path": "concepts/span-comparison.svg",
-      "bytes": 3664,
-      "sha256": "d896dd8ad27f0a366adf3e71cc167c3d307989b97fc0364230b4f264f99333b9"
+      "bytes": 3692,
+      "sha256": "797ba77246e13604b059996779f789ec7fc963f8c1a60e8de455c6e58655bdc9"
     },
     {
       "path": "concepts/truss-comparison.png",
@@ -45,8 +45,8 @@
     },
     {
       "path": "concepts/truss-comparison.svg",
-      "bytes": 3267,
-      "sha256": "c4fb94731a084f5f80683da19e5c0f7f4b4022af8854b04f00fd0b399f42abf8"
+      "bytes": 3315,
+      "sha256": "b126fa14374aa0cdbe3f9ec42ce12b98e6fff83cd8bd73734e0910db72b4d358"
     },
     {
       "path": "drawing-stamp/trpl-s-stamp-dark.png",
@@ -55,8 +55,8 @@
     },
     {
       "path": "drawing-stamp/trpl-s-stamp-dark.svg",
-      "bytes": 989,
-      "sha256": "2d0276e8dce977cc9f98afcf239d036f896d9e3945809942e441524bef062a04"
+      "bytes": 1006,
+      "sha256": "fffc3cf5b53b0c223f28901604a5ffc5998f4a9b85faa3daba6dc50e3efd11bc"
     },
     {
       "path": "drawing-stamp/trpl-s-stamp-light.png",
@@ -65,13 +65,13 @@
     },
     {
       "path": "drawing-stamp/trpl-s-stamp-light.svg",
-      "bytes": 989,
-      "sha256": "5f4205620c49f5084e167a380c3feb208006c4b98c0b7061244812fb4af4ebf6"
+      "bytes": 1006,
+      "sha256": "ed6a11c3fd629ad647b8f3fcbc9870a3b4e7f7778d29d4fc2d34441e3915726b"
     },
     {
       "path": "guide/trpl-s-usage-guide.md",
-      "bytes": 1667,
-      "sha256": "18a9074a451ab1aebf1941005102a50de8abbd87c12e47cb6d56203ad07ece47"
+      "bytes": 1710,
+      "sha256": "62963acd01af1b03150fd82893619b81cb0abba26af6903ad281e815b8a396bd"
     },
     {
       "path": "guide/trpl-s-usage-guide.pdf",
@@ -80,58 +80,58 @@
     },
     {
       "path": "master/trpl-s-primary-black.svg",
-      "bytes": 1009,
-      "sha256": "a40e3558411bfc692f0e2785b33733c5a27785f6ecad414ed92dbee702c73f78"
+      "bytes": 1026,
+      "sha256": "4aa5ddca5529dbc35b52a857dc822510f123284a0c3f772ee34453846f9d43ba"
     },
     {
       "path": "master/trpl-s-primary-positive.svg",
-      "bytes": 1009,
-      "sha256": "6de9c185fabe49701d1dde52988bec41a75c45c34b4294be5727a2eee7563cac"
+      "bytes": 1026,
+      "sha256": "f5e49095c06b3566184f0cb248d6d56b101883bea0b13095f14a5f8a99cf1e5a"
     },
     {
       "path": "master/trpl-s-primary-reversed.svg",
-      "bytes": 1068,
-      "sha256": "15eaaa89025ccdf733ce5e98769e91db08a450b65228bb3f1f343d76362eb531"
+      "bytes": 1085,
+      "sha256": "840b32841e88976074032f2e3f2b3afcc7ffe28364ef68eadd9c42b467ff6a53"
     },
     {
       "path": "master/trpl-s-primary-transparent.svg",
-      "bytes": 1009,
-      "sha256": "6de9c185fabe49701d1dde52988bec41a75c45c34b4294be5727a2eee7563cac"
+      "bytes": 1026,
+      "sha256": "f5e49095c06b3566184f0cb248d6d56b101883bea0b13095f14a5f8a99cf1e5a"
     },
     {
       "path": "master/trpl-s-stacked-positive.svg",
-      "bytes": 967,
-      "sha256": "b399040ca7ee0b3f519b54787d2d628794c081972134428adeee05bd1b232d25"
+      "bytes": 984,
+      "sha256": "e2353433ecf02fd9fa7ec53b5ed1def9b2c00f9215dd27673e765ad69275283b"
     },
     {
       "path": "master/trpl-s-stacked-reversed.svg",
-      "bytes": 1026,
-      "sha256": "7582487cab97933552b136852313ee92f150c39532815a4a54533adc95b9d1e0"
+      "bytes": 1043,
+      "sha256": "73d2804c9a17e8f4dd2dbc085aba07f91e19ab5dac2b1494ba841e16d30986a8"
     },
     {
       "path": "master/trpl-s-symbol-positive.svg",
-      "bytes": 482,
-      "sha256": "2398aa2a763da8331e17978d7349ab564527915dfed0f12a178a09868da98e48"
+      "bytes": 492,
+      "sha256": "5d2676c62324ee8ce7fb270c1c6eb67c09ec2f608ab782f74d1dc8829bd825aa"
     },
     {
       "path": "master/trpl-s-symbol-reversed.svg",
-      "bytes": 541,
-      "sha256": "2277c110824b4344a1625aa522d51588f8f40ea61fefdcc78904b714a7446228"
+      "bytes": 551,
+      "sha256": "c190cd7fb8444057a8550c3d6684a62303729fadb2f45fc845442238eebd5756"
     },
     {
       "path": "master/trpl-s-symbol-small.svg",
-      "bytes": 482,
-      "sha256": "6c96ab862f1acac2889886dd4bfaad96602f7c4e80b17d017b40b028961b18f1"
+      "bytes": 492,
+      "sha256": "d3d18e85a7903bc497ca929bd482629006055c9af686dcc1cd7ab69ae25d7709"
     },
     {
       "path": "master/trpl-s-wordmark-positive.svg",
-      "bytes": 757,
-      "sha256": "454bc728702cd6c09dcfcd9f5b32d5ddbea8b820ce2f1757860dc9f94d4b8b8a"
+      "bytes": 770,
+      "sha256": "db6745af70053a1375d4f1cd26d21c8d35f6a7f6baa55c56a2d6ebff1ed5a2fb"
     },
     {
       "path": "master/trpl-s-wordmark-reversed.svg",
-      "bytes": 816,
-      "sha256": "eeefd7f2d51b5635a09f3bc1604990583d3730fa1d6c8fe91d64929d46b25f2e"
+      "bytes": 829,
+      "sha256": "822e5a2b77d06bf0e2e709bdfbf84c1cf8873ce98479ec4ee4e6c982e1e928a2"
     },
     {
       "path": "print/trpl-s-drawing-sheet-lockup.pdf",
@@ -170,13 +170,13 @@
     },
     {
       "path": "provenance.md",
-      "bytes": 726,
-      "sha256": "49bd57aded6280b58046e330db5415ceee38c6c1966dde2be69c9f3d7c4a267c"
+      "bytes": 1011,
+      "sha256": "8b034b5215c900a9b7a0017976da1e40f1f3fcadafa139304d20d33296be8bd1"
     },
     {
       "path": "README.md",
-      "bytes": 971,
-      "sha256": "9d98c889a4e6d6d7bd313addf5d00b15ed3db9e01d012c54f36c70f429168bb2"
+      "bytes": 994,
+      "sha256": "28005cbdc1e93938107a3248bb3d14cfc47da931af51c9ed57c13dbd5a05307c"
     },
     {
       "path": "validation/favicon-16-pixel-check.png",
@@ -195,28 +195,33 @@
     },
     {
       "path": "web/apple-touch-icon-180.png",
-      "bytes": 2678,
-      "sha256": "1c2c3536210e3be0dbb5f4c1ea3a46eac271b8dabefb3844fe306cb1d53e11da"
+      "bytes": 3749,
+      "sha256": "5751071514aa8b62b6e47cf44f7cee3efe5dcf89c12a5e810da2ec4719b92dfe"
     },
     {
       "path": "web/favicon-16.png",
-      "bytes": 326,
-      "sha256": "72686b540b52e55d96e47bfbc8e27d4365686195f952d9261570272e5b3d219d"
+      "bytes": 414,
+      "sha256": "00f78560fec4a6c3e730469d70e1040f1a111b87c9ed0e8457afd2041c6a3021"
     },
     {
       "path": "web/favicon-32.png",
-      "bytes": 551,
-      "sha256": "a337be5a00f5826e76f7e9c0b64d18d99c29820b3946f9fa80ee751b6c6ea360"
+      "bytes": 742,
+      "sha256": "d74aee1b865672eafb2fd1512c5d5e4936aa731e3e2425f45b761fa16f253cac"
     },
     {
       "path": "web/icon-192.png",
-      "bytes": 2905,
-      "sha256": "728bffd397438b94b2e0d4afee000f7d98a2c4554f964acc211f0248957f51a2"
+      "bytes": 3966,
+      "sha256": "ce2c66a144c227a3c59ddd00ab3e5c9934e5e5580bf1a742c4500b28a442da88"
     },
     {
       "path": "web/icon-512.png",
-      "bytes": 9210,
-      "sha256": "e25b478e3bb89e42fe7caa17308cbd83b67401ad8e0737cadd9a77f69160996c"
+      "bytes": 11808,
+      "sha256": "0160a7b0ae53889f3da39869c52bbade4adab28801b4fba6d9c4c4a5a80576d7"
+    },
+    {
+      "path": "web/site-icon-manifest.json",
+      "bytes": 544,
+      "sha256": "2480bb4ad5b363aa7504caeda17c86179c06baafaa8e0667e56909474fc2ac23"
     },
     {
       "path": "web/trpl-s-primary-1x.png",
@@ -237,6 +242,11 @@
       "path": "web/trpl-s-primary-reversed-2x.png",
       "bytes": 13677,
       "sha256": "297bea6f5b343df1ac6a203407ab7a88152e87f85dea5248395a49c6345283de"
+    },
+    {
+      "path": "web/trpl-s-site-icon.svg",
+      "bytes": 444,
+      "sha256": "5b09d85031ebd83cbb8c5ee5d0079072fcc1f62e67b17c22efd21f4e688f3d71"
     },
     {
       "path": "web/trpl-s-stacked-1x.png",
