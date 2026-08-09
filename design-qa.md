@@ -29,7 +29,7 @@
 ## Required fidelity surfaces
 
 - Fonts and typography: passed. Cormorant Garamond, DM Mono, and Inter remain unchanged; the new headline keeps the established size, weight, wrapping, and italic emphasis.
-- Spacing and layout rhythm: passed. The intro grid is unchanged and the single artwork panel is centered at a deliberate 760 px maximum width.
+- Spacing and layout rhythm: passed. The intro grid is unchanged and the landscape artwork panel is centered at a deliberate 1180 px maximum width.
 - Colors and visual tokens: passed. The charcoal, graphite, vellum, and paper palette is unchanged.
 - Image quality and asset fidelity: passed. Only the original high-resolution Edition 02 scan is rendered, with the existing contrast and brightness treatment.
 - Copy and content: passed. The visible section contains one resolved-edition narrative and no first-edition language.
@@ -38,10 +38,19 @@
 
 - trpl-S (2) navigation lands correctly.
 - Desktop renders exactly one edition card using `assets/trpl-S(2).webp`.
-- Mobile renders exactly one edition card at 338 px wide with no horizontal overflow.
-- The Edition 02 image loads at its natural 1711 × 2723 px resolution.
+- Mobile renders exactly one edition card with no horizontal overflow.
+- The Edition 02 image loads in its natural landscape orientation at 2723 × 1711 px.
 - Browser console contains no errors at desktop or mobile sizes.
 - Three first-edition asset files were removed from the repository.
 - Focused comparison was not needed beyond the full section because the retained artwork, label, and copy are clearly legible at the captured sizes.
+
+## Artwork fit correction
+
+- Reference evidence: the supplied screenshots showed both drawings clipped by fixed-height `cover` treatments.
+- Implementation evidence: `tmp/trpl-s-1-fit-desktop.png` and `tmp/trpl-s-2-fit-desktop.png` at 1412 × 900 px.
+- trpl-S (1) now renders at the source ratio of 1.412 with `object-fit: contain`; the complete 1800 × 1275 drawing remains available without cropping.
+- trpl-S (2) now renders as a 1.591 landscape feature at its complete 2723 × 1711 source ratio.
+- The previous trpl-S (2) portrait constraint and image zoom were removed.
+- Desktop horizontal overflow: 0 px. Browser warnings and errors: none.
 
 final result: passed
