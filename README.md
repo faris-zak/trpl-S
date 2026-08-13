@@ -6,6 +6,13 @@ The production-ready identity package lives in [`brand/trpl-s-logo-package`](bra
 
 The local website is a framework-free HTML, CSS, and JavaScript experience. Open [`index.html`](index.html) directly or serve the repository root with any static file server.
 
+## trpl-S (3)
+
+The third original house is presented as a long elevation study in which repeated triangular frames rise between low and vertical volumes.
+
+- Original drawing: [`assets/trpl-S(3).jpg`](assets/trpl-S(3).jpg)
+- Optimized website image: [`assets/trpl-S(3).webp`](assets/trpl-S(3).webp)
+
 ## trpl-S (2)
 
 The second original house, trpl-S (2), is presented through its resolved second drawing edition near the end of the website narrative.

@@ -32,12 +32,19 @@ try {
   await desktop.waitForTimeout(2400);
 
   assert(response?.ok(), "Home page returns a successful response");
-  assert((await desktop.locator("nav a").allTextContents()).join("|") === "trpl-S (1)|trpl-S (2)|Contact", "Navigation uses the trpl-S project names");
-  assert((await desktop.locator("main > section").evaluateAll((sections) => sections.map((section) => section.id))).join("|") === "threshold|trpl-s-1|form|trpl-s-2", "The named trpl-S sections render");
+  assert((await desktop.locator("nav a").allTextContents()).join("|") === "trpl-S (1)|trpl-S (2)|trpl-S (3)|Contact", "Navigation uses the trpl-S project names");
+  assert((await desktop.locator("main > section").evaluateAll((sections) => sections.map((section) => section.id))).join("|") === "threshold|trpl-s-1|form|trpl-s-2|trpl-s-3", "The named trpl-S sections render");
   assert(!/interactive model|structural massing|direction reset/i.test(await desktop.locator("body").innerText()), "No 3D or massing copy remains");
   assert((await desktop.locator("#trpl-s-2 img").count()) === 1, "Only trpl-S (2) Edition 02 renders");
   assert((await desktop.locator("#trpl-s-2 img").getAttribute("src")) === "assets/trpl-S(2).webp", "trpl-S (2) uses the Edition 02 scan");
   assert(!/Edition 01|First lines|drawn twice/i.test(await desktop.locator("#trpl-s-2").innerText()), "Edition 01 copy is fully removed");
+  assert((await desktop.locator("#trpl-s-3 img").count()) === 1, "trpl-S (3) drawing renders");
+  assert((await desktop.locator("#trpl-s-3 img").getAttribute("src")) === "assets/trpl-S(3).webp", "trpl-S (3) uses the optimized drawing");
+  const desktopImages = desktop.locator("img");
+  for (let i = 0; i < await desktopImages.count(); i += 1) {
+    await desktopImages.nth(i).scrollIntoViewIfNeeded();
+    await desktopImages.nth(i).evaluate((image) => image.decode());
+  }
   const desktopBrokenImages = await desktop.locator("img").evaluateAll((images) => images.filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.getAttribute("src")));
   assert(desktopBrokenImages.length === 0, "All local artwork resolves successfully");
   const desktopOverflow = await desktop.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -49,10 +56,15 @@ try {
   await desktop.locator('nav a[href="#trpl-s-2"]').click();
   await desktop.waitForTimeout(950);
   assert((await desktop.evaluate(() => location.hash)) === "#trpl-s-2", "trpl-S (2) navigation lands correctly");
+  await desktop.locator('nav a[href="#trpl-s-3"]').click();
+  await desktop.waitForTimeout(950);
+  assert((await desktop.evaluate(() => location.hash)) === "#trpl-s-3", "trpl-S (3) navigation lands correctly");
+  assert(await desktop.locator("#trpl-s-3 .reveal.visible").count() === 4, "trpl-S (3) reveal sequence completes");
   await desktop.locator('nav a[href="#contact"]').click();
   await desktop.waitForTimeout(950);
   assert(await desktop.locator("#contact .reveal.visible").count() === 2, "Contact reveal sequence completes");
-  assert(errors.length === 0, "Desktop browser emits no console or page errors");
+  assert(errors.length === 0, `Desktop browser emits no console or page errors${errors.length ? ` (${errors.join(" | ")})` : ""}`);
+  await desktop.locator("#trpl-s-3").screenshot({ path: path.resolve("tmp", "trpl-s-3-desktop.png") });
   await desktop.screenshot({ path: path.resolve("tmp", "claude-redesign-desktop.png"), fullPage: true });
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
@@ -65,7 +77,12 @@ try {
   await mobile.locator('nav a[href="#trpl-s-2"]').click();
   await mobile.waitForTimeout(950);
   assert((await mobile.locator("#trpl-s-2 .edition").count()) === 1, "Only Edition 02 remains available on mobile");
-  assert(errors.length === 0, "Mobile browser emits no console or page errors");
+  await mobile.locator('nav a[href="#trpl-s-3"]').click();
+  await mobile.waitForTimeout(950);
+  assert((await mobile.evaluate(() => location.hash)) === "#trpl-s-3", "trpl-S (3) navigation works on mobile");
+  assert(await mobile.locator("#trpl-s-3 img").isVisible(), "trpl-S (3) drawing remains visible on mobile");
+  assert(errors.length === 0, `Mobile browser emits no console or page errors${errors.length ? ` (${errors.join(" | ")})` : ""}`);
+  await mobile.locator("#trpl-s-3").screenshot({ path: path.resolve("tmp", "trpl-s-3-mobile.png") });
   await mobile.screenshot({ path: path.resolve("tmp", "claude-redesign-mobile.png"), fullPage: true });
 
   process.stdout.write(`${JSON.stringify({ url, checks, errors }, null, 2)}\n`);
