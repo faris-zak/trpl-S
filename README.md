@@ -8,7 +8,7 @@ The local website is a framework-free HTML, CSS, and JavaScript experience. Open
 
 ## Concept visualization comparisons
 
-Each house includes a prepared, accessible drawing-to-reality comparison that remains hidden until its realistic image is supplied. Add the optimized files as `assets/trpl-S(1)-visualization.webp`, `assets/trpl-S(2)-visualization.webp`, and `assets/trpl-S(3)-visualization.webp`; then set the matching `data-visualization-src` value and remove `hidden` from its comparison in `index.html`.
+Each house includes an accessible drawing-to-reality comparison using the supplied realistic visualizations. The optimized files live at `assets/trpl-S(1)-visualization.webp`, `assets/trpl-S(2)-visualization.webp`, and `assets/trpl-S(3)-visualization.webp`.
 
 ## trpl-S (3)
 

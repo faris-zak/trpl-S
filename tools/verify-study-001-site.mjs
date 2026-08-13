@@ -37,15 +37,15 @@ try {
   assert((await desktop.locator(".nav-links a").allTextContents()).join("|") === "trpl-S (1)|trpl-S (2)|trpl-S (3)|Contact", "Navigation uses the trpl-S project names");
   assert((await desktop.locator("main > section").evaluateAll((sections) => sections.map((section) => section.id))).join("|") === "threshold|trpl-s-1|form|trpl-s-2|trpl-s-3", "The named trpl-S sections render");
   assert(!/interactive model|structural massing|direction reset/i.test(await desktop.locator("body").innerText()), "No 3D or massing copy remains");
-  assert((await desktop.locator('#trpl-s-2 [data-comparison-fallback] img').count()) === 1, "Only trpl-S (2) Edition 02 renders publicly");
-  assert((await desktop.locator('#trpl-s-2 [data-comparison-fallback] img').getAttribute("src")) === "assets/trpl-S(2).webp", "trpl-S (2) uses the Edition 02 scan");
+  assert((await desktop.locator("[data-visual-comparison]").count()) === 3, "All three comparison sliders render publicly");
+  assert((await desktop.locator("[data-visual-comparison][hidden]").count()) === 0, "All comparison sliders are active");
+  assert(await desktop.locator("[data-visual-comparison]").evaluateAll((comparisons) => comparisons.every((comparison) => comparison.dataset.comparisonReady === "true")), "All comparison sliders initialize");
+  assert(await desktop.locator("[data-comparison-fallback]").evaluateAll((fallbacks) => fallbacks.every((fallback) => fallback.hidden)), "All sketch fallbacks are suppressed by active comparisons");
+  assert((await desktop.locator('[data-project="trpl-S (1)"] [data-comparison-concept]').getAttribute("src")) === "assets/trpl-S(1)-visualization.webp", "trpl-S (1) uses its supplied visualization");
+  assert((await desktop.locator('[data-project="trpl-S (2)"] [data-comparison-concept]').getAttribute("src")) === "assets/trpl-S(2)-visualization.webp", "trpl-S (2) uses its supplied visualization");
+  assert((await desktop.locator('[data-project="trpl-S (3)"] [data-comparison-concept]').getAttribute("src")) === "assets/trpl-S(3)-visualization.webp", "trpl-S (3) uses its supplied visualization");
   assert(!/Edition 01|First lines|drawn twice/i.test(await desktop.locator("#trpl-s-2").innerText()), "Edition 01 copy is fully removed");
-  assert((await desktop.locator('#trpl-s-3 [data-comparison-fallback] img').count()) === 1, "trpl-S (3) drawing renders");
-  assert((await desktop.locator('#trpl-s-3 [data-comparison-fallback] img').getAttribute("src")) === "assets/trpl-S(3).webp", "trpl-S (3) uses the optimized drawing");
-  assert((await desktop.locator('[data-visual-comparison][hidden]').count()) === 3, "All comparison shells remain hidden before visualization images arrive");
-  assert(await desktop.locator('[data-visual-comparison] img').evaluateAll((images) => images.every((image) => !image.hasAttribute('src'))), "Hidden comparison images make no asset requests");
-  assert(await desktop.locator('[data-comparison-fallback]').evaluateAll((fallbacks) => fallbacks.every((fallback) => !fallback.hidden)), "All sketch fallbacks remain public");
-  const desktopImages = desktop.locator("img[src]");
+  const desktopImages = desktop.locator("img[src]:visible");
   for (let i = 0; i < await desktopImages.count(); i += 1) {
     await desktopImages.nth(i).scrollIntoViewIfNeeded();
     await desktopImages.nth(i).evaluate((image) => image.decode());
@@ -72,27 +72,16 @@ try {
   await desktop.locator("#trpl-s-3").screenshot({ path: path.resolve("tmp", "trpl-s-3-desktop.png") });
   await desktop.screenshot({ path: path.resolve("tmp", "claude-redesign-desktop.png"), fullPage: true });
 
-  const comparisonDesktop = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
-  attachErrorCollection(comparisonDesktop, "comparison ");
-  await comparisonDesktop.goto(url, { waitUntil: "domcontentloaded" });
-  await comparisonDesktop.waitForTimeout(400);
-  await comparisonDesktop.evaluate(() => {
-    document.querySelectorAll("[data-visual-comparison]").forEach((comparison) => {
-      comparison.dataset.visualizationSrc = comparison.dataset.originalSrc;
-      comparison.hidden = false;
-    });
-    window.initializeVisualComparisons();
-  });
-  const comparison = comparisonDesktop.locator('[data-project="trpl-S (1)"]');
+  const comparison = desktop.locator('[data-project="trpl-S (1)"]');
   const comparisonControl = comparison.locator("[data-comparison-control]");
-  assert(await comparison.isVisible(), "Prepared comparison activates when a visualization source is configured");
+  assert(await comparison.isVisible(), "Public comparison is visible");
   assert(await comparison.getAttribute("data-comparison-ready") === "true", "Comparison reports its initialized state");
   assert(await comparison.locator("[data-comparison-original]").getAttribute("src") === "assets/trpl-S(1).webp", "Comparison loads the configured original drawing");
-  assert(await comparison.locator("[data-comparison-concept]").getAttribute("src") === "assets/trpl-S(1).webp", "Comparison loads the configured visualization fixture");
+  assert(await comparison.locator("[data-comparison-concept]").getAttribute("src") === "assets/trpl-S(1)-visualization.webp", "Comparison loads the configured visualization");
   const disclaimer = (await comparison.locator("figcaption").innerText()).replace(/\s+/g, " ").trim();
   assert(/AI-assisted concept visualization.*Interpretive only.*Not for construction/i.test(disclaimer), "Interpretive visualization disclaimer is visible");
   assert(await comparison.locator("[data-comparison-fallback]").count() === 0, "Comparison shell does not duplicate its fallback internally");
-  assert(await comparison.locator("xpath=..").locator("[data-comparison-fallback]").isHidden(), "Activating a comparison suppresses its static fallback");
+  assert(await comparison.locator("xpath=..").locator("[data-comparison-fallback]").isHidden(), "Public comparison suppresses its static fallback");
   await comparisonControl.focus();
   await comparisonControl.press("Home");
   assert(await comparisonControl.inputValue() === "0", "Home reveals the complete original drawing");
@@ -109,8 +98,7 @@ try {
   }
   assert(Math.abs(Number(await comparisonControl.inputValue()) - 70) <= 2, "Pointer interaction updates the comparison position");
   await comparison.screenshot({ path: path.resolve("tmp", "visual-comparison-desktop.png") });
-  assert(errors.length === 0, `Activated desktop comparison emits no console or page errors${errors.length ? ` (${errors.join(" | ")})` : ""}`);
-  await comparisonDesktop.close();
+  assert(errors.length === 0, `Desktop comparison emits no console or page errors${errors.length ? ` (${errors.join(" | ")})` : ""}`);
 
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
   attachErrorCollection(mobile, "mobile ");
@@ -122,23 +110,17 @@ try {
   await mobile.locator(".nav-toggle").click();
   await mobile.locator('nav a[href="#trpl-s-2"]').click();
   await mobile.waitForTimeout(950);
-  assert((await mobile.locator("#trpl-s-2 .edition").count()) === 1, "Only Edition 02 remains available on mobile");
+  assert(await mobile.locator('[data-project="trpl-S (2)"]').isVisible(), "trpl-S (2) comparison remains visible on mobile");
   await mobile.locator(".nav-toggle").click();
   await mobile.locator('nav a[href="#trpl-s-3"]').click();
   await mobile.waitForTimeout(950);
   assert((await mobile.evaluate(() => location.hash)) === "#trpl-s-3", "trpl-S (3) navigation works on mobile");
-  assert(await mobile.locator('#trpl-s-3 [data-comparison-fallback] img').isVisible(), "trpl-S (3) drawing remains visible on mobile");
+  assert(await mobile.locator('[data-project="trpl-S (3)"]').isVisible(), "trpl-S (3) comparison remains visible on mobile");
   await mobile.locator("#trpl-s-3").screenshot({ path: path.resolve("tmp", "trpl-s-3-mobile.png") });
   await mobile.screenshot({ path: path.resolve("tmp", "claude-redesign-mobile.png"), fullPage: true });
 
-  await mobile.evaluate(() => {
-    const comparison = document.querySelector('[data-project="trpl-S (3)"]');
-    comparison.dataset.visualizationSrc = comparison.dataset.originalSrc;
-    comparison.hidden = false;
-    window.initializeVisualComparisons();
-  });
   const mobileComparison = mobile.locator('[data-project="trpl-S (3)"]');
-  assert(await mobileComparison.isVisible(), "Prepared comparison remains usable at mobile width");
+  assert(await mobileComparison.isVisible(), "Public comparison remains usable at mobile width");
   const activatedMobileOverflow = await mobile.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert(activatedMobileOverflow <= 1, "Activated comparison creates no mobile horizontal overflow");
   await mobileComparison.locator("[data-comparison-control]").fill("35");
