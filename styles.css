@@ -56,12 +56,16 @@ nav::after {
 }
 
 .nav-logo {
+  position: relative;
+  z-index: 2;
   font-family: var(--mono);
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   color: var(--graphite);
   text-transform: uppercase;
 }
+
+.nav-toggle { display: none; }
 
 .nav-links {
   display: flex;
@@ -401,6 +405,149 @@ nav::after {
   text-transform: uppercase;
 }
 
+.visual-comparison[hidden],
+[data-comparison-fallback][hidden] {
+  display: none !important;
+}
+
+.visual-comparison {
+  width: min(1400px, 100%);
+  margin-inline: auto;
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.visual-comparison-stage {
+  --comparison-position: 50%;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--mid);
+}
+
+.visual-comparison-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.visual-comparison-original {
+  object-fit: contain;
+  background: var(--paper);
+  filter: brightness(0.9) contrast(1.05);
+}
+
+.visual-comparison-reveal {
+  position: absolute;
+  z-index: 1;
+  inset: 0 auto 0 0;
+  width: 50%;
+  overflow: hidden;
+}
+
+.visual-comparison-concept {
+  width: 100vw;
+  max-width: none;
+}
+
+.visual-comparison-label {
+  position: absolute;
+  z-index: 3;
+  top: 1rem;
+  padding: 0.45rem 0.65rem;
+  color: var(--paper);
+  background: rgba(11, 10, 9, 0.72);
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.visual-comparison-label-original { right: 1rem; }
+.visual-comparison-label-concept { left: 1rem; }
+
+.visual-comparison-divider {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--white);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.visual-comparison-divider i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  background: rgba(11, 10, 9, 0.82);
+  transform: translate(-50%, -50%);
+}
+
+.visual-comparison-divider i::before,
+.visual-comparison-divider i::after {
+  position: absolute;
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  border-bottom: 1px solid var(--white);
+  border-left: 1px solid var(--white);
+}
+
+.visual-comparison-divider i::before {
+  left: 0.7rem;
+  transform: rotate(45deg);
+}
+
+.visual-comparison-divider i::after {
+  right: 0.7rem;
+  transform: rotate(225deg);
+}
+
+.visual-comparison-control {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+
+.visual-comparison-control:focus-visible {
+  outline: 0;
+}
+
+.visual-comparison-stage:has(.visual-comparison-control:focus-visible) {
+  outline: 2px solid var(--vellum);
+  outline-offset: -4px;
+}
+
+.visual-comparison figcaption {
+  padding: 1rem 1.5rem;
+  color: var(--graphite);
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .footer {
   background: var(--black);
   padding: var(--gap) clamp(1.5rem, 5vw, 4rem);
@@ -477,14 +624,126 @@ nav::after {
 }
 
 @media (max-width: 600px) {
-  .nav-links { gap: 0.75rem; }
-  .nav-links a { font-size: 0.5rem; letter-spacing: 0.04em; }
+  nav {
+    min-height: 4rem;
+    padding: 0 1.25rem;
+    background: rgba(11, 10, 9, 0.92);
+    border-bottom: 1px solid rgba(200, 185, 154, 0.12);
+    backdrop-filter: blur(18px);
+  }
+
+  nav::after { display: none; }
+
+  .nav-logo {
+    color: var(--paper);
+    font-size: 0.68rem;
+  }
+
+  .nav-toggle {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-width: 4.75rem;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.7rem;
+    border: 0;
+    color: var(--graphite);
+    background: transparent;
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .nav-toggle:focus-visible,
+  .nav-links a:focus-visible,
+  .nav-logo:focus-visible {
+    outline: 1px solid var(--vellum);
+    outline-offset: 4px;
+  }
+
+  .nav-toggle-icon {
+    position: relative;
+    display: block;
+    width: 1.15rem;
+    height: 0.75rem;
+  }
+
+  .nav-toggle-icon i {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transition: top 0.25s ease, transform 0.25s ease;
+  }
+
+  .nav-toggle-icon i:first-child { top: 0.18rem; }
+  .nav-toggle-icon i:last-child { top: 0.56rem; }
+
+  .site-nav.menu-open .nav-toggle-icon i:first-child { top: 0.38rem; transform: rotate(45deg); }
+  .site-nav.menu-open .nav-toggle-icon i:last-child { top: 0.38rem; transform: rotate(-45deg); }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    gap: 0;
+    padding: 0.5rem 1.25rem 1rem;
+    background: rgba(11, 10, 9, 0.98);
+    border-bottom: 1px solid rgba(200, 185, 154, 0.18);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+
+  .site-nav.menu-open .nav-links {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .nav-links li { border-top: 1px solid rgba(200, 185, 154, 0.12); }
+
+  .nav-links a {
+    display: flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--graphite);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-links a::after {
+    content: '↘';
+    color: var(--mid);
+    font-size: 0.8rem;
+  }
+
+  .nav-links a[aria-current="true"] { color: var(--paper); }
+  .nav-links a[aria-current="true"]::after { color: var(--vellum); }
 
   .trpl-s-3-drawing figcaption {
     padding: 1rem;
     font-size: 0.52rem;
     letter-spacing: 0.08em;
   }
+
+  .visual-comparison-stage { aspect-ratio: 4 / 3; }
+  .visual-comparison-label { top: 0.65rem; font-size: 0.48rem; }
+  .visual-comparison-label-original { right: 0.65rem; }
+  .visual-comparison-label-concept { left: 0.65rem; }
+  .visual-comparison-divider i { width: 2.5rem; height: 2.5rem; }
+  .visual-comparison figcaption { padding: 0.9rem; font-size: 0.48rem; letter-spacing: 0.08em; }
 }
 
 @media (prefers-reduced-motion: reduce) {

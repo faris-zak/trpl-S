@@ -25,13 +25,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=6">
-  <script src="script.js?v=6" defer></script>
+  <link rel="stylesheet" href="styles.css?v=7">
+  <script src="script.js?v=7" defer></script>
 </head>
 <body>
-  <nav>
-    <span class="nav-logo">trpl-S</span>
-    <ul class="nav-links">
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="nav-logo" href="#threshold" aria-label="trpl-S home">trpl-S</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span class="nav-toggle-label">Menu</span>
+      <span class="nav-toggle-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+    <ul class="nav-links" id="primary-menu">
       <li><a href="#trpl-s-1">trpl-S (1)</a></li>
       <li><a href="#trpl-s-2">trpl-S (2)</a></li>
       <li><a href="#trpl-s-3">trpl-S (3)</a></li>
@@ -63,14 +67,31 @@
       </div>
     </section>
 
-    <div class="drawing-strip reveal">
-      <div class="drawing-strip-inner">
-        <img src="assets/trpl-S(1).webp" alt="Pencil elevation study of R-L-S — a house formed from triangular structural logic">
+    <div data-comparison-host>
+      <div data-comparison-fallback>
+        <div class="drawing-strip reveal">
+          <div class="drawing-strip-inner">
+            <img src="assets/trpl-S(1).webp" alt="Pencil elevation study of R-L-S — a house formed from triangular structural logic">
+          </div>
+        </div>
+        <div class="drawing-caption reveal">
+          <span class="drawing-caption-text">Elevation study · Pencil on paper</span>
+          <span class="drawing-caption-meta">trpl-S (1) / R-L-S</span>
+        </div>
       </div>
-    </div>
-    <div class="drawing-caption reveal">
-      <span class="drawing-caption-text">Elevation study · Pencil on paper</span>
-      <span class="drawing-caption-meta">trpl-S (1) / R-L-S</span>
+      <figure class="visual-comparison" data-visual-comparison data-project="trpl-S (1)" data-original-src="assets/trpl-S(1).webp" data-visualization-src="" hidden>
+        <div class="visual-comparison-stage">
+          <img class="visual-comparison-image visual-comparison-original" alt="Original pencil elevation study of trpl-S (1)" data-comparison-original>
+          <div class="visual-comparison-reveal" data-comparison-reveal>
+            <img class="visual-comparison-image visual-comparison-concept" alt="AI-assisted concept visualization of trpl-S (1) as a realistic home" data-comparison-concept>
+          </div>
+          <span class="visual-comparison-label visual-comparison-label-original">Original drawing</span>
+          <span class="visual-comparison-label visual-comparison-label-concept">Concept visualization</span>
+          <span class="visual-comparison-divider" aria-hidden="true" data-comparison-divider><i></i></span>
+          <input class="visual-comparison-control" type="range" min="0" max="100" value="50" aria-label="Compare the original drawing and concept visualization for trpl-S (1)" aria-valuetext="50% original drawing and 50% concept visualization" data-comparison-control>
+        </div>
+        <figcaption>AI-assisted concept visualization · Interpretive only · Not for construction</figcaption>
+      </figure>
     </div>
 
     <section class="analysis" id="form">
@@ -105,12 +126,29 @@
         </div>
       </div>
       <div class="trpl-s-2-editions reveal" style="transition-delay:0.1s">
-        <div class="edition">
-          <img src="assets/trpl-S(2).webp" alt="Second edition scanned pencil drawing of trpl-S (2)">
-          <div class="edition-label">
-            <span class="edition-num">Edition 02</span>
-            <span class="edition-title">Scanned study</span>
+        <div data-comparison-host>
+          <div data-comparison-fallback>
+            <div class="edition">
+              <img src="assets/trpl-S(2).webp" alt="Second edition scanned pencil drawing of trpl-S (2)">
+              <div class="edition-label">
+                <span class="edition-num">Edition 02</span>
+                <span class="edition-title">Scanned study</span>
+              </div>
+            </div>
           </div>
+          <figure class="visual-comparison" data-visual-comparison data-project="trpl-S (2)" data-original-src="assets/trpl-S(2).webp" data-visualization-src="" hidden>
+            <div class="visual-comparison-stage">
+              <img class="visual-comparison-image visual-comparison-original" alt="Original scanned pencil drawing of trpl-S (2)" data-comparison-original>
+              <div class="visual-comparison-reveal" data-comparison-reveal>
+                <img class="visual-comparison-image visual-comparison-concept" alt="AI-assisted concept visualization of trpl-S (2) as a realistic home" data-comparison-concept>
+              </div>
+              <span class="visual-comparison-label visual-comparison-label-original">Original drawing</span>
+              <span class="visual-comparison-label visual-comparison-label-concept">Concept visualization</span>
+              <span class="visual-comparison-divider" aria-hidden="true" data-comparison-divider><i></i></span>
+              <input class="visual-comparison-control" type="range" min="0" max="100" value="50" aria-label="Compare the original drawing and concept visualization for trpl-S (2)" aria-valuetext="50% original drawing and 50% concept visualization" data-comparison-control>
+            </div>
+            <figcaption>AI-assisted concept visualization · Interpretive only · Not for construction</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -125,13 +163,30 @@
           <p class="trpl-s-3-body">A low sequence of frames gathers height across the page, connecting grounded rooms to a vertical volume. Repeated triangles turn the long elevation into movement.</p>
         </div>
       </div>
-      <figure class="trpl-s-3-drawing reveal" style="transition-delay:0.1s">
-        <img src="assets/trpl-S(3).webp" alt="Pencil elevation drawing of trpl-S (3), a long house formed from rising triangular frames between low and tall rectangular volumes" width="3151" height="1662" loading="lazy">
-        <figcaption>
-          <span>Elevation study · Pencil on lined paper</span>
-          <span>trpl-S (3)</span>
-        </figcaption>
-      </figure>
+      <div data-comparison-host>
+        <div data-comparison-fallback>
+          <figure class="trpl-s-3-drawing reveal" style="transition-delay:0.1s">
+            <img src="assets/trpl-S(3).webp" alt="Pencil elevation drawing of trpl-S (3), a long house formed from rising triangular frames between low and tall rectangular volumes" width="3151" height="1662" loading="lazy">
+            <figcaption>
+              <span>Elevation study · Pencil on lined paper</span>
+              <span>trpl-S (3)</span>
+            </figcaption>
+          </figure>
+        </div>
+        <figure class="visual-comparison" data-visual-comparison data-project="trpl-S (3)" data-original-src="assets/trpl-S(3).webp" data-visualization-src="" hidden>
+          <div class="visual-comparison-stage">
+            <img class="visual-comparison-image visual-comparison-original" alt="Original pencil elevation drawing of trpl-S (3)" data-comparison-original>
+            <div class="visual-comparison-reveal" data-comparison-reveal>
+              <img class="visual-comparison-image visual-comparison-concept" alt="AI-assisted concept visualization of trpl-S (3) as a realistic home" data-comparison-concept>
+            </div>
+            <span class="visual-comparison-label visual-comparison-label-original">Original drawing</span>
+            <span class="visual-comparison-label visual-comparison-label-concept">Concept visualization</span>
+            <span class="visual-comparison-divider" aria-hidden="true" data-comparison-divider><i></i></span>
+            <input class="visual-comparison-control" type="range" min="0" max="100" value="50" aria-label="Compare the original drawing and concept visualization for trpl-S (3)" aria-valuetext="50% original drawing and 50% concept visualization" data-comparison-control>
+          </div>
+          <figcaption>AI-assisted concept visualization · Interpretive only · Not for construction</figcaption>
+        </figure>
+      </div>
     </section>
   </main>
 

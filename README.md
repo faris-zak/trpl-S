@@ -6,6 +6,10 @@ The production-ready identity package lives in [`brand/trpl-s-logo-package`](bra
 
 The local website is a framework-free HTML, CSS, and JavaScript experience. Open [`index.html`](index.html) directly or serve the repository root with any static file server.
 
+## Concept visualization comparisons
+
+Each house includes a prepared, accessible drawing-to-reality comparison that remains hidden until its realistic image is supplied. Add the optimized files as `assets/trpl-S(1)-visualization.webp`, `assets/trpl-S(2)-visualization.webp`, and `assets/trpl-S(3)-visualization.webp`; then set the matching `data-visualization-src` value and remove `hidden` from its comparison in `index.html`.
+
 ## trpl-S (3)
 
 The third original house is presented as a long elevation study in which repeated triangular frames rise between low and vertical volumes.

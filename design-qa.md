@@ -53,4 +53,14 @@
 - The previous trpl-S (2) portrait constraint and image zoom were removed.
 - Desktop horizontal overflow: 0 px. Browser warnings and errors: none.
 
+## Responsive navigation correction
+
+- Reference evidence: the supplied 304 px screenshot showed the logo and four navigation links wrapping into fragmented two-line labels.
+- Implementation evidence: `tmp/mobile-nav-open.png` at 304 × 280 px.
+- Mobile now uses a fixed 64 px brand bar with one explicit Menu/Close control and a full-width navigation sheet.
+- Each destination is a 52 px touch row; labels stay intact and the current section receives an accessible `aria-current` state.
+- Selecting a destination closes the sheet; Escape closes it and returns focus to the menu control; outside tap and desktop resize also dismiss it.
+- At 304 px and 1280 px, horizontal overflow is 0 px and the browser console contains no warnings or errors.
+- Desktop retains the original inline navigation and hides the mobile control.
+
 final result: passed
