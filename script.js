@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js');
+
 const reveals = document.querySelectorAll('.reveal');
 
 const siteNav = document.querySelector('.site-nav');

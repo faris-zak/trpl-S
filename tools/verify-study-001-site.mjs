@@ -31,11 +31,17 @@ try {
   const desktop = await browser.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
   attachErrorCollection(desktop);
   const response = await desktop.goto(url, { waitUntil: "domcontentloaded" });
+  await desktop.addStyleTag({ content: "html { scroll-behavior: auto !important; }" });
   await desktop.waitForTimeout(2400);
 
   assert(response?.ok(), "Home page returns a successful response");
-  assert((await desktop.locator(".nav-links a").allTextContents()).join("|") === "trpl-S (1)|trpl-S (2)|trpl-S (3)|Contact", "Navigation uses the trpl-S project names");
-  assert((await desktop.locator("main > section").evaluateAll((sections) => sections.map((section) => section.id))).join("|") === "threshold|trpl-s-1|form|trpl-s-2|trpl-s-3", "The named trpl-S sections render");
+  assert((await desktop.locator(".nav-links a").allTextContents()).join("|") === "Study 01|Study 02|Study 03|Development|Contact", "Navigation exposes all three studies and the development case study");
+  assert((await desktop.locator("main > section").evaluateAll((sections) => sections.map((section) => section.id))).join("|") === "threshold|name-origin|trpl-s-1|development|trpl-s-2|trpl-s-3|closing", "The portfolio chapters render in the intended sequence");
+  assert(/Support, Stabilize, Stiffen/i.test(await desktop.locator("#name-origin").innerText()), "The name origin is explained in the opening narrative");
+  assert((await desktop.locator("#development .drawing-card").count()) === 2, "Development includes elevation and section drawing boards");
+  assert((await desktop.locator("#development .drawing-index-grid a").count()) === 6, "Development provides the individual plans and elevations");
+  assert((await desktop.locator('#development a[href="output/pdf/study-001-house-development.pdf"]').count()) === 1, "The three-sheet development PDF is linked");
+  assert((await desktop.locator('meta[name="description"]').getAttribute("content")).includes("support, stability, and stiffness"), "Search description reflects the portfolio's structural idea");
   assert(!/interactive model|structural massing|direction reset/i.test(await desktop.locator("body").innerText()), "No 3D or massing copy remains");
   assert((await desktop.locator("[data-visual-comparison]").count()) === 3, "All three comparison sliders render publicly");
   assert((await desktop.locator("[data-visual-comparison][hidden]").count()) === 0, "All comparison sliders are active");
@@ -45,13 +51,13 @@ try {
   assert((await desktop.locator('[data-project="trpl-S (2)"] [data-comparison-concept]').getAttribute("src")) === "assets/trpl-S(2)-visualization.webp", "trpl-S (2) uses its supplied visualization");
   assert((await desktop.locator('[data-project="trpl-S (3)"] [data-comparison-concept]').getAttribute("src")) === "assets/trpl-S(3)-visualization.webp", "trpl-S (3) uses its supplied visualization");
   assert(!/Edition 01|First lines|drawn twice/i.test(await desktop.locator("#trpl-s-2").innerText()), "Edition 01 copy is fully removed");
-  const desktopImages = desktop.locator("img[src]:visible");
-  for (let i = 0; i < await desktopImages.count(); i += 1) {
-    await desktopImages.nth(i).scrollIntoViewIfNeeded();
-    await desktopImages.nth(i).evaluate((image) => image.decode());
-  }
-  const desktopBrokenImages = await desktop.locator("img[src]").evaluateAll((images) => images.filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.getAttribute("src")));
-  assert(desktopBrokenImages.length === 0, "All local artwork resolves successfully");
+  const desktopBrokenImages = await desktop.locator("img[src]").evaluateAll(async (images) => {
+    const rendered = images.filter((image) => !image.closest("[hidden]"));
+    rendered.forEach((image) => { image.loading = "eager"; });
+    await Promise.all(rendered.map((image) => image.decode().catch(() => null)));
+    return rendered.filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.getAttribute("src"));
+  });
+  assert(desktopBrokenImages.length === 0, `All rendered local artwork resolves successfully${desktopBrokenImages.length ? ` (${desktopBrokenImages.join(", ")})` : ""}`);
   const desktopOverflow = await desktop.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert(desktopOverflow <= 1, "Desktop layout has no horizontal overflow");
 
@@ -64,13 +70,18 @@ try {
   await desktop.locator('nav a[href="#trpl-s-3"]').click();
   await desktop.waitForTimeout(950);
   assert((await desktop.evaluate(() => location.hash)) === "#trpl-s-3", "trpl-S (3) navigation lands correctly");
-  assert(await desktop.locator("#trpl-s-3 .reveal.visible").count() === 4, "trpl-S (3) reveal sequence completes");
+  assert(await desktop.locator("#trpl-s-3 .study-heading .reveal.visible").count() === 3, "trpl-S (3) chapter intro reveals on arrival");
+  await desktop.locator("#trpl-s-3 .study-reflection").scrollIntoViewIfNeeded();
+  await desktop.waitForTimeout(150);
+  assert(await desktop.locator("#trpl-s-3 .study-reflection").evaluate((element) => element.classList.contains("visible")), "trpl-S (3) reflection reveals when reached");
+  await desktop.locator('nav a[href="#development"]').click();
+  await desktop.waitForTimeout(950);
+  assert((await desktop.evaluate(() => location.hash)) === "#development", "Development navigation lands correctly");
   await desktop.locator('nav a[href="#contact"]').click();
   await desktop.waitForTimeout(950);
   assert(await desktop.locator("#contact .reveal.visible").count() === 2, "Contact reveal sequence completes");
   assert(errors.length === 0, `Desktop browser emits no console or page errors${errors.length ? ` (${errors.join(" | ")})` : ""}`);
   await desktop.locator("#trpl-s-3").screenshot({ path: path.resolve("tmp", "trpl-s-3-desktop.png") });
-  await desktop.screenshot({ path: path.resolve("tmp", "claude-redesign-desktop.png"), fullPage: true });
 
   const comparison = desktop.locator('[data-project="trpl-S (1)"]');
   const comparisonControl = comparison.locator("[data-comparison-control]");
@@ -103,6 +114,7 @@ try {
   const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
   attachErrorCollection(mobile, "mobile ");
   await mobile.goto(url, { waitUntil: "domcontentloaded" });
+  await mobile.addStyleTag({ content: "html { scroll-behavior: auto !important; }" });
   await mobile.waitForTimeout(2400);
   const mobileOverflow = await mobile.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   assert(mobileOverflow <= 1, "Mobile layout has no horizontal overflow");
@@ -117,7 +129,6 @@ try {
   assert((await mobile.evaluate(() => location.hash)) === "#trpl-s-3", "trpl-S (3) navigation works on mobile");
   assert(await mobile.locator('[data-project="trpl-S (3)"]').isVisible(), "trpl-S (3) comparison remains visible on mobile");
   await mobile.locator("#trpl-s-3").screenshot({ path: path.resolve("tmp", "trpl-s-3-mobile.png") });
-  await mobile.screenshot({ path: path.resolve("tmp", "claude-redesign-mobile.png"), fullPage: true });
 
   const mobileComparison = mobile.locator('[data-project="trpl-S (3)"]');
   assert(await mobileComparison.isVisible(), "Public comparison remains usable at mobile width");
@@ -127,6 +138,20 @@ try {
   assert((await mobileComparison.locator("[data-comparison-control]").getAttribute("aria-valuetext")) === "65% original drawing and 35% concept visualization", "Mobile control updates its accessible percentage");
   await mobileComparison.screenshot({ path: path.resolve("tmp", "visual-comparison-mobile.png") });
   assert(errors.length === 0, `Mobile browser emits no console or page errors${errors.length ? ` (${errors.join(" | ")})` : ""}`);
+
+  const reducedMotion = await browser.newPage({ viewport: { width: 1280, height: 720 }, reducedMotion: "reduce" });
+  await reducedMotion.goto(url, { waitUntil: "domcontentloaded" });
+  await reducedMotion.waitForTimeout(80);
+  assert(await reducedMotion.locator(".reveal").first().evaluate((element) => getComputedStyle(element).opacity) === "1", "Reduced-motion preference keeps reveal content visible");
+  assert(await reducedMotion.locator(".mark-line-green").evaluate((element) => Number.parseFloat(getComputedStyle(element).strokeDashoffset)) === 0, "Reduced-motion preference skips structural line drawing");
+  await reducedMotion.close();
+
+  const noScript = await browser.newPage({ viewport: { width: 1280, height: 720 }, javaScriptEnabled: false });
+  await noScript.goto(url, { waitUntil: "domcontentloaded" });
+  assert(await noScript.locator("#study-one-title").isVisible(), "Project content remains visible without JavaScript");
+  assert(await noScript.locator("#trpl-s-1 [data-comparison-fallback]").isVisible(), "Original drawing fallback remains available without JavaScript");
+  assert(await noScript.locator("#trpl-s-1 [data-visual-comparison]").isHidden(), "Uninitialized comparison controls stay hidden without JavaScript");
+  await noScript.close();
 
   process.stdout.write(`${JSON.stringify({ url, checks, errors }, null, 2)}\n`);
 } finally {

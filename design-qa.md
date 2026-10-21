@@ -64,3 +64,15 @@
 - Desktop retains the original inline navigation and hides the mobile control.
 
 final result: passed
+
+## Support · Stabilize · Stiffen portfolio redesign
+
+- Source direction: the approved TRPL-S website rethink. The three project studies remain the chapter structure; the name origin is introduced as the structural thread.
+- Implementation: replaced the previous project narrative with a dark, cinematic portfolio, a line-drawn triangular motif, project reflections, and a dedicated trpl-S (1) development case study.
+- The development case study uses the existing arrangement, elevations, section, six standalone plan/elevation sheets, and three-sheet PDF. Its concept-design / not-for-construction note is visible beside the drawings.
+- Comparison sliders remain available for all three projects, with original drawing and interpretive visualization labels and the AI-assisted / not-for-construction disclaimer.
+- Desktop verification: 1280 × 720. Mobile verification: 390 × 844. Reduced-motion preference was also checked.
+- Verified navigation destinations, chapter order, metadata, drawing links, image loading, comparison keyboard and pointer input, mobile comparison behavior, reduced-motion rendering, no-JavaScript drawing fallback, and zero horizontal overflow at desktop and mobile widths.
+- Browser console and page errors: none. All 53 assertions in `tools/verify-study-001-site.mjs` passed.
+
+Final result: passed.
