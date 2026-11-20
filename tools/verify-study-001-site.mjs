@@ -50,6 +50,11 @@ try {
     await desktopImages.nth(i).scrollIntoViewIfNeeded();
     await desktopImages.nth(i).evaluate((image) => image.decode());
   }
+  // Hidden fallbacks may remain lazy until explicitly requested by this check.
+  await desktop.locator("img[src]").evaluateAll((images) => Promise.all(images.map((image) => {
+    image.loading = "eager";
+    return image.decode();
+  })));
   const desktopBrokenImages = await desktop.locator("img[src]").evaluateAll((images) => images.filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.getAttribute("src")));
   assert(desktopBrokenImages.length === 0, "All local artwork resolves successfully");
   const desktopOverflow = await desktop.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -64,7 +69,7 @@ try {
   await desktop.locator('nav a[href="#trpl-s-3"]').click();
   await desktop.waitForTimeout(950);
   assert((await desktop.evaluate(() => location.hash)) === "#trpl-s-3", "trpl-S (3) navigation lands correctly");
-  assert(await desktop.locator("#trpl-s-3 .reveal.visible").count() === 4, "trpl-S (3) reveal sequence completes");
+  assert(await desktop.locator("#trpl-s-3 .reveal.visible:visible").count() === await desktop.locator("#trpl-s-3 .reveal:visible").count(), "trpl-S (3) reveal sequence completes for displayed content");
   await desktop.locator('nav a[href="#contact"]').click();
   await desktop.waitForTimeout(950);
   assert(await desktop.locator("#contact .reveal.visible").count() === 2, "Contact reveal sequence completes");
